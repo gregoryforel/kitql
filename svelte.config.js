@@ -1,19 +1,41 @@
-import adapter from '@sveltejs/adapter-auto';
+// https://github.com/sveltejs/language-tools/issues/1228
+import adapter from '@sveltejs/adapter-netlify';
+import path from 'path';
 import preprocess from 'svelte-preprocess';
+import Icons from 'unplugin-icons/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: [
+		preprocess({
+			postcss: true // <- Set this to enable PostCSS
+		})
+	],
 
 	kit: {
 		adapter: adapter(),
-
-		// Override http methods in the Todo forms
-		methodOverride: {
-			allowed: ['PATCH', 'DELETE']
+		vite: {
+			optimizeDeps: {
+				include: ['broadcast-channel']
+			},
+			plugins: [
+				Icons({
+					compiler: 'svelte'
+				})
+			],
+			resolve: {
+				alias: {
+					$utils: path.resolve('./src/utils'),
+					$routes: path.resolve('./src/routes')
+				}
+			}
 		}
+		// prerender: {
+		// 	enabled: true,
+		// 	onError: (e) => console.log(e),
+		// },
 	}
 };
 
