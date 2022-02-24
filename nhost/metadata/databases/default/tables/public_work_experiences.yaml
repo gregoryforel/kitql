@@ -1,0 +1,38 @@
+table:
+  name: work_experiences
+  schema: public
+object_relationships:
+- name: resume
+  using:
+    foreign_key_constraint_on: resume_id
+select_permissions:
+- permission:
+    columns:
+    - from
+    - to
+    - city
+    - company
+    - country
+    - description
+    - job_title
+    - created_at
+    - updated_at
+    - id
+    - resume_id
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - from
+    - to
+    - city
+    - company
+    - country
+    - description
+    - job_title
+    - created_at
+    - updated_at
+    - id
+    - resume_id
+    filter: {}
+  role: user

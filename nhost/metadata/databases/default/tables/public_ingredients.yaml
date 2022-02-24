@@ -1,0 +1,51 @@
+table:
+  name: ingredients
+  schema: public
+array_relationships:
+- name: recipes_ingredients
+  using:
+    foreign_key_constraint_on:
+      column: ingredient_id
+      table:
+        name: recipes_ingredients
+        schema: public
+- name: steps_ingredients
+  using:
+    foreign_key_constraint_on:
+      column: ingredient_id
+      table:
+        name: steps_ingredients
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - is_processed
+    - calories_cooked
+    - calories_raw
+    - carbs
+    - lipid
+    - protein
+    - sugar
+    - name
+    - created_at
+    - updated_at
+    - id
+    filter: {}
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - name
+    - calories_raw
+    - calories_cooked
+    - protein
+    - lipid
+    - is_processed
+    - carbs
+    - sugar
+    filter: {}
+  role: user

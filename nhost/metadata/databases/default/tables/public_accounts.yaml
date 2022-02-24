@@ -1,0 +1,40 @@
+table:
+  name: accounts
+  schema: public
+object_relationships:
+- name: owner
+  using:
+    foreign_key_constraint_on: owner_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      owner_id:
+        _eq: X-Hasura-User-Id
+    columns:
+    - id
+    - name
+    - owner_id
+    set:
+      owner_id: x-hasura-User-Id
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - id
+    - name
+    - owner_id
+    filter: {}
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - name
+    - owner_id
+    filter:
+      owner_id:
+        _eq: X-Hasura-User-Id
+  role: user
