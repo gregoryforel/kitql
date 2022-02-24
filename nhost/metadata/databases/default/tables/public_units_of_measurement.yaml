@@ -1,0 +1,18 @@
+table:
+  name: units_of_measurement
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - abbrevation
+    - name
+    - type
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - abbrevation
+    - name
+    - type
+    filter: {}
+  role: user

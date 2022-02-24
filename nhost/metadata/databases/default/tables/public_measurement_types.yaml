@@ -1,0 +1,14 @@
+table:
+  name: measurement_types
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - measurement_type
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - measurement_type
+    filter: {}
+  role: user

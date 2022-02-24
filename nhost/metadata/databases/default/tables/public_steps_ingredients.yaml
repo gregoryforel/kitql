@@ -1,0 +1,37 @@
+table:
+  name: steps_ingredients
+  schema: public
+object_relationships:
+- name: ingredient
+  using:
+    foreign_key_constraint_on: ingredient_id
+- name: step
+  using:
+    foreign_key_constraint_on: step_id
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - step_id
+    - ingredient_id
+    - quantity
+    - unit
+    - extra_info
+    filter: {}
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - quantity
+    - extra_info
+    - unit
+    - created_at
+    - updated_at
+    - id
+    - ingredient_id
+    - step_id
+    filter: {}
+  role: user
