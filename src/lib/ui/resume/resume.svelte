@@ -1,6 +1,6 @@
 <script context="module">
 	import { browser, dev } from '$app/env'
-	import { nhost } from '$lib/util/nhost'
+	// import { nhost } from '$lib/util/nhost'
 	// we don't need any JS on this page, though we'll load
 	// it in dev so that we get hot module replacement...
 	export const hydrate = dev
@@ -19,6 +19,8 @@
 	import IconMapMarker from '~icons/mdi/map-marker'
 	import IconPhone from '~icons/mdi/phone'
 	import resume from '../../../resume.json'
+	import theme from '../../../theme.json'
+	import Container from './components/container.svelte'
 
 	// let resumes
 	// ;(async () => {
@@ -47,8 +49,19 @@
 <div class="flex justify-center p-8">
 	<div class="actualpage bg-white">
 		<div class="page">
-			<!-- Here START -->
-			<div class="grid [grid-template-areas:'header''content']">
+			<!-- NEW START -->
+			{#each theme.containers as container, index}
+				<Container
+					class={container.class}
+					htmlTag={container.htmlTag}
+					resumeKey={container.resumeKey?.replace('{{index}}', index)}
+					containers={container.containers}
+				/>
+			{/each}
+			<!-- NEW END -->
+
+			<!-- OLD -->
+			<!-- <div class="grid [grid-template-areas:'header''content']">
 				<header class="[grid-area:header] w-full flex flex-col gap-2 mb-8">
 					<h1 class="uppercase text-gray-900 text-3xl font-semibold">
 						{resume.basics.name}
@@ -108,26 +121,8 @@
 							{/each}
 						</div>
 					</article>
-					<div>
-						<header>
-							<h2
-								class="uppercase text-gray-500 font-semibold tracking-wider text-lg w-full border-b border-gray-200"
-							>
-								Education
-							</h2>
-						</header>
-					</div>
-					<div>
-						<header>
-							<h2
-								class="uppercase text-gray-500 font-semibold tracking-wider text-lg w-full border-b border-gray-200"
-							>
-								Interests
-							</h2>
-						</header>
-					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
