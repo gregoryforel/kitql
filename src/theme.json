@@ -1,0 +1,150 @@
+{
+	"containers": [
+		{
+			"resumeKey": null,
+			"class": "grid [grid-template-areas:'header''content']",
+			"htmlTag": "div",
+			"containers": [
+				{
+					"resumeKey": null,
+					"class": "[grid-area:header] w-full flex flex-col gap-2 mb-8",
+					"htmlTag": "header",
+					"containers": [
+						{
+							"resumeKey": "resume.basics.name",
+							"class": "uppercase text-gray-900 text-3xl font-semibold",
+							"htmlTag": "h1"
+						},
+						{
+							"resumeKey": null,
+							"class": "flex gap-8",
+							"htmlTag": "div",
+							"containers": [
+								{
+									"resumeKey": "resume.basics.name",
+									"class": "uppercase text-gray-900 text-3xl font-semibold",
+									"htmlTag": "h1"
+								},
+								{
+									"resumeKey": null,
+									"class": "flex gap-8",
+									"htmlTag": "div",
+									"containers": [
+										{
+											"resumeKey": "resume.basics.email",
+											"class": "text-gray-700",
+											"htmlTag": "span"
+										},
+										{
+											"resumeKey": "resume.basics.phone",
+											"class": "text-gray-700",
+											"htmlTag": "span"
+										},
+										{
+											"resumeKey": "resume.basics.location.countryCode",
+											"class": "text-gray-700",
+											"htmlTag": "span"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"resumeKey": null,
+					"class": "[grid-area:content] flex flex-col gap-8",
+					"htmlTag": "div",
+					"containers": [
+						{
+							"resumeKey": null,
+							"class": null,
+							"htmlTag": "article",
+							"containers": [
+								{
+									"resumeKey": null,
+									"class": null,
+									"htmlTag": "header",
+									"containers": [
+										{
+											"resumeKey": "sectionNames.work",
+											"class": "uppercase text-gray-600 font-medium tracking-wider text-lg w-full border-b border-gray-200",
+											"htmlTag": "h2"
+										}
+									]
+								},
+								{
+									"resumeKey": null,
+									"class": "flex flex-col gap-4",
+									"htmlTag": "div",
+									"containers": [
+										{
+											"resumeKey": "resume.work",
+											"class": "flex flex-col",
+											"htmlTag": "article[]",
+											"containers": [
+												{
+													"resumeKey": null,
+													"class": null,
+													"htmlTag": "header",
+													"containers": [
+														{
+															"resumeKey": null,
+															"class": "flex justify-between",
+															"htmlTag": "div",
+															"containers": [
+																{
+																	"resumeKey": "resume.work[].name",
+																	"class": "text-lg text-gray-900 font-bold",
+																	"htmlTag": "h3"
+																},
+																{
+																	"resumeKey": "resume.work[].startDate - resume.work[].endDate",
+																	"class": "text-base text-gray-500 italic",
+																	"htmlTag": "span"
+																}
+															]
+														},
+														{
+															"resumeKey": null,
+															"class": "flex justify-between",
+															"htmlTag": "div",
+															"containers": [
+																{
+																	"resumeKey": "workExperience.position",
+																	"class": "text-base text-gray-900 italic",
+																	"htmlTag": "div"
+																},
+																{
+																	"resumeKey": "workExperience.location",
+																	"class": "text-base text-gray-500 italic",
+																	"htmlTag": "span"
+																}
+															]
+														}
+													]
+												},
+												{
+													"resumeKey": null,
+													"class": "list-disc ml-8",
+													"htmlTag": "ul",
+													"containers": [
+														{
+															"resumeKey": "resume.work[].highlights[]",
+															"class": "text-base text-gray-900 italic",
+															"htmlTag": "li[]"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,136 @@
+{
+	"basics": {
+		"name": "Gregory Forel",
+		"label": "",
+		"email": "gregory.forel@gmail.com",
+		"phone": "+34 644 40 21 47",
+		"url": "",
+		"summary": null,
+		"location": {
+			"address": "Carrer de la Marina 56 apt 2-1",
+			"postalCode": "08005",
+			"city": "Barcelona",
+			"countryCode": "ES",
+			"region": "Barcelona"
+		}
+	},
+	"sectionNames": { "work": "Work Experience" },
+	"work": [
+		{
+			"position": "Global Program Manager - Worldwide Inside Sales & Analytics",
+			"name": "Microsoft",
+			"url": "https://microsoft.com",
+			"startDate": "2014-03-01",
+			"endDate": "2018-05-01",
+			"location": "Remote",
+			"summary": "",
+			"highlights": [
+				"Developed PowerBI data model and dashboard used by 30+ executives, accounting for multi-billion US$ in sales.",
+				"Led sales team",
+				"And many more improvements."
+			]
+		},
+		{
+			"position": "Group IT Program Manager - ERP & CRM implementations",
+			"name": "OCS One Complete Solution",
+			"url": "https://www.ocs.com/",
+			"startDate": "2012-01-01",
+			"endDate": "2014-02-01",
+			"location": "Dublin, Ireland",
+			"summary": "",
+			"highlights": [
+				"Implemented SAGE CRM.",
+				"Led development of new ERP for new business.",
+				"Streamlined processes.",
+				"And many more improvements."
+			]
+		}
+	],
+	"volunteer": [
+		{
+			"organization": "Organization",
+			"position": "Volunteer",
+			"url": "https://organization.com/",
+			"startDate": "2012-01-01",
+			"endDate": "2013-01-01",
+			"summary": "Description…",
+			"highlights": ["Awarded 'Volunteer of the Month'"]
+		}
+	],
+	"education": [
+		{
+			"institution": "University",
+			"url": "https://institution.com/",
+			"area": "Software Development",
+			"studyType": "Bachelor",
+			"startDate": "2011-01-01",
+			"endDate": "2013-01-01",
+			"score": "4.0",
+			"courses": ["DB1101 - Basic SQL"]
+		}
+	],
+	"awards": [
+		{
+			"title": "Award",
+			"date": "2014-11-01",
+			"awarder": "Company",
+			"summary": "There is no spoon."
+		}
+	],
+	"certificates": [
+		{
+			"name": "Certificate",
+			"date": "2021-11-07",
+			"issuer": "Company",
+			"url": "https://certificate.com"
+		}
+	],
+	"publications": [
+		{
+			"name": "Publication",
+			"publisher": "Company",
+			"releaseDate": "2014-10-01",
+			"url": "https://publication.com",
+			"summary": "Description…"
+		}
+	],
+	"skills": [
+		{
+			"name": "Web Development",
+			"level": "Master",
+			"keywords": ["HTML", "CSS", "JavaScript"]
+		}
+	],
+	"languages": [
+		{
+			"language": "English",
+			"fluency": "Native speaker"
+		}
+	],
+	"interests": [
+		{
+			"name": "Wildlife",
+			"keywords": ["Ferrets", "Unicorns"]
+		}
+	],
+	"references": [
+		{
+			"name": "Jane Doe",
+			"reference": "Reference…"
+		}
+	],
+	"projects": [
+		{
+			"name": "Project",
+			"description": "Description…",
+			"highlights": ["Won award at AIHacks 2016"],
+			"keywords": ["HTML"],
+			"startDate": "2019-01-01",
+			"endDate": "2021-01-01",
+			"url": "https://project.com/",
+			"roles": ["Team Lead"],
+			"entity": "Entity",
+			"type": "application"
+		}
+	]
+}
