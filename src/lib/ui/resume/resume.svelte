@@ -53,7 +53,7 @@
 			{#each theme.containers as container, index}
 				<Container
 					class={container.class}
-					htmlTag={container.htmlTag}
+					tag={container.tag}
 					resumeKey={container.resumeKey?.replace('{{index}}', index)}
 					containers={container.containers}
 				/>

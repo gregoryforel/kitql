@@ -1,6 +1,6 @@
 export interface ContainerType {
 	resumeKey?: string
 	class?: string
-	htmlTag: string
+	tag: string
 	containers?: ContainerType[]
 }
