@@ -3,7 +3,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[svelte]": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "svelte.svelte-vscode"
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
 	// The following will hide the js and map files in the editor
 	"files.exclude": {
