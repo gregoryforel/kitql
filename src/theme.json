@@ -70,22 +70,22 @@
 								},
 								{
 									"resumeKey": null,
-									"class": "flex flex-col gap-4",
+									"class": "work-experience-list flex flex-col gap-4",
 									"tag": "div",
 									"containers": [
 										{
 											"resumeKey": "$.work",
-											"class": "flex flex-col",
+											"class": "work-exp flex flex-col bg-blue-300",
 											"tag": "article",
 											"containers": [
 												{
 													"resumeKey": null,
-													"class": null,
+													"class": "work-exp-header bg-red-300 todelete",
 													"tag": "header",
 													"containers": [
 														{
 															"resumeKey": null,
-															"class": "flex justify-between",
+															"class": "name-dates-container flex justify-between",
 															"tag": "div",
 															"containers": [
 																{
@@ -102,7 +102,7 @@
 														},
 														{
 															"resumeKey": null,
-															"class": "flex justify-between",
+															"class": "position-location-container flex justify-between",
 															"tag": "div",
 															"containers": [
 																{
@@ -121,12 +121,12 @@
 												},
 												{
 													"resumeKey": null,
-													"class": "list-disc ml-8",
+													"class": "highlight-list list-disc ml-8 bg-green-300",
 													"tag": "ul",
 													"containers": [
 														{
 															"resumeKey": "$.work[{{index}}].highlights[{{index}}]",
-															"class": "text-base text-gray-900 italic",
+															"class": "highlight text-base text-gray-900 italic",
 															"tag": "li"
 														}
 													]

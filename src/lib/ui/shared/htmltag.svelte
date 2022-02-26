@@ -25,4 +25,8 @@
 	<section {...$$props}><slot /></section>
 {:else if tag === 'span'}
 	<span {...$$props}><slot /></span>
+{:else if tag === 'ul'}
+	<ul {...$$props}><slot /></ul>
+{:else}
+	<div {...$$props}><slot /></div>
 {/if}

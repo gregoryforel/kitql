@@ -13,47 +13,76 @@
 	export let resumeKey: string
 	export let tag: string
 	export let containers: ContainerType[]
-	const htmltag: HtmlTag = tag as unknown as HtmlTag
 	const isArray = resumeKey
 		? Array.isArray(JSONPath({ path: resumeKey, json: resume })[0])
 		: false
+	const getHtmltag = (tag: string): HtmlTag => {
+		return tag as unknown as HtmlTag
+	}
 </script>
 
-<!-- <span class="text-xs bg-blue-100 w-fit flex">{tag}|{resumeKey}|{isArray}</span> -->
-
 {#if isArray}
-	{#each JSONPath({ path: resumeKey, json: resume })[0] as stuf}
-		<!-- <pre>{JSON.stringify(stuf, null, 2)}</pre> -->
+	{#each JSONPath({ path: resumeKey, json: resume })[0] as _, index}
 		<Htmltag
-			tag={htmltag}
+			tag={getHtmltag(tag)}
 			class={cc({
-				container: true,
 				[className]: Boolean(className),
 			})}
 		>
-			{#if containers}
-				{#each containers as container, index}
+			<!-- <pre>{JSON.stringify(
+					containers.map((c) => ({ ...c, containers: null })),
+					null,
+					2
+				)}</pre> -->
+			{#each containers as container, i2}
+				<!-- <div class="w-72 flex justify-between bg-yellow-100">
+					<pre class="inline text-red-500">{getHtmltag(container.tag)}</pre>
+					<pre class="inline">{container.class.split(' ')[0]}</pre>
+				</div> -->
+				<Htmltag
+					tag={getHtmltag(container.tag)}
+					class={cc({
+						[container.class]: Boolean(container.class),
+					})}
+				>
+					<!-- {container.class}
+					{container.resumeKey}
+					{container?.resumeKey?.replace('{{index}}', i2.toString())}
+					{container.tag}
+					{container.containers?.length}
+					{i2} -->
 					<svelte:self
 						class={container?.class}
-						tag={container?.tag}
-						resumeKey={container?.resumeKey?.replace('{{index}}', index.toString())}
+						tag={getHtmltag(container.tag)}
+						resumeKey={container?.resumeKey?.replace('{{index}}', i2.toString())}
 						containers={container?.containers}
 					/>
-				{/each}
-			{:else if resumeKey}
-				<Htmltag tag={htmltag}>{JSONPath({ path: resumeKey, json: resume })}</Htmltag>
-			{/if}
+					<div>Fc</div>
+				</Htmltag>
+			{/each}
+			<!-- {#each containers as container}
+				<Htmltag
+					tag={getHtmltag(container.tag)}
+					class={cc({
+						[container.class]: Boolean(container.class),
+					})}>{container.class}</Htmltag
+				>
+			{/each} -->
+			<!-- <Htmltag
+				tag={htmltag}
+				class={cc({
+					
+					[className]: Boolean(className),
+				})}
+			>
+				<pre>{JSON.stringify(containers, null, 2)}</pre>
+			</Htmltag> -->
 		</Htmltag>
 	{/each}
-	<!-- {JSONPath({ path: resumeKey, json: resume })[0].map(tag => )} -->
-	<!-- {#each JSONPath({ path: resumeKey, json: resume })[0] as stuf}
-		<pre>{JSON.stringify(stuf, null, 2)}</pre>
-	{/each} -->
 {:else}
 	<Htmltag
-		tag={htmltag}
+		tag={getHtmltag(tag)}
 		class={cc({
-			container: true,
 			[className]: Boolean(className),
 		})}
 	>
@@ -67,7 +96,7 @@
 				/>
 			{/each}
 		{:else if resumeKey}
-			<Htmltag tag={htmltag}>{JSONPath({ path: resumeKey, json: resume })}</Htmltag>
+			<Htmltag tag={getHtmltag(tag)}>{JSONPath({ path: resumeKey, json: resume })}</Htmltag>
 		{/if}
 	</Htmltag>
 {/if}
