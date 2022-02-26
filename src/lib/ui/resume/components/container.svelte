@@ -7,6 +7,8 @@
 	import resume from '../../../../resume.json'
 
 	import type { ContainerType } from './container.types'
+	import { getHtmltag } from './container.helpers'
+	import ContainerLeaf from './container-leaf.svelte'
 
 	let className: string
 	export { className as class }
@@ -16,9 +18,6 @@
 	const isArray = resumeKey
 		? Array.isArray(JSONPath({ path: resumeKey, json: resume })[0])
 		: false
-	const getHtmltag = (tag: string): HtmlTag => {
-		return tag as unknown as HtmlTag
-	}
 </script>
 
 {#if isArray}
@@ -57,7 +56,6 @@
 						resumeKey={container?.resumeKey?.replace('{{index}}', i2.toString())}
 						containers={container?.containers}
 					/>
-					<div>Fc</div>
 				</Htmltag>
 			{/each}
 			<!-- {#each containers as container}
@@ -96,7 +94,7 @@
 				/>
 			{/each}
 		{:else if resumeKey}
-			<Htmltag tag={getHtmltag(tag)}>{JSONPath({ path: resumeKey, json: resume })}</Htmltag>
+			<ContainerLeaf {resumeKey} {tag} />
 		{/if}
 	</Htmltag>
 {/if}

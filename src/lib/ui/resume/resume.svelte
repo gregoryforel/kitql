@@ -21,6 +21,7 @@
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
+	import { resumeTree } from './resume'
 
 	// let resumes
 	// ;(async () => {
@@ -49,15 +50,16 @@
 <div class="flex justify-center p-8">
 	<div class="actualpage bg-white">
 		<div class="page">
+			<pre>{JSON.stringify(resumeTree, null, 2)}</pre>
 			<!-- NEW START -->
-			{#each theme.containers as container, index}
+			<!-- {#each theme.containers as container, index}
 				<Container
 					class={container.class}
 					tag={container.tag}
 					resumeKey={container.resumeKey?.replace('{{index}}', index)}
 					containers={container.containers}
 				/>
-			{/each}
+			{/each} -->
 			<!-- NEW END -->
 
 			<!-- OLD -->
