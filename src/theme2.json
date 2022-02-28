@@ -1,21 +1,21 @@
 {
-	"key": "$.work",
+	"path": "$.work",
 	"tag": "1",
 	"containers": [
 		{
-			"key": null,
+			"path": null,
 			"tag": "1.1",
 			"containers": [
 				{
-					"key": "$.work[{{index}}].name",
+					"path": "$.work[{{index}}].name",
 					"tag": "1.1.1"
 				},
 				{
-					"key": "$.highlights",
+					"path": "$.work[{{index}}].highlights",
 					"tag": "1.1.2",
 					"containers": [
 						{
-							"key": "$.highlights[{{index}}]",
+							"path": "$.work[{{index}}].highlights[{{index}}]",
 							"tag": "1.1.2.1"
 						}
 					]
