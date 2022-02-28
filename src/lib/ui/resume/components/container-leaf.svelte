@@ -4,8 +4,8 @@
 	import { getHtmltag } from './container.helpers'
 	import resume from '../../../../resume.json'
 
-	export let resumeKey: string
+	export let key: string
 	export let tag: string = null
 </script>
 
-<Htmltag tag={getHtmltag(tag)}>{JSONPath({ path: resumeKey, json: resume })}</Htmltag>
+<Htmltag tag={getHtmltag(tag)}>{JSONPath({ path: key, json: resume })}</Htmltag>

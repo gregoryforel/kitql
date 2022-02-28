@@ -56,7 +56,7 @@
 				<Container
 					class={container.class}
 					tag={container.tag}
-					resumeKey={container.resumeKey?.replace('{{index}}', index)}
+					key={container.key?.replace('{{index}}', index)}
 					containers={container.containers}
 				/>
 			{/each} -->

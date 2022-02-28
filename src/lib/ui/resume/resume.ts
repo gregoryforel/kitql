@@ -1,69 +1,87 @@
 import { JSONPath } from 'jsonpath-plus'
 
 import resume from '../../../resume.json'
-import theme from '../../../theme.json'
+import theme from '../../../theme2.json'
 
 import type { ContainerType } from './components/container.types'
 
-const loop = ({ branch, index }: { branch: ContainerType; index: number }) => {
-	const resumeKey = branch?.resumeKey
-	const tag = branch?.tag
-	const containers = branch?.containers
+const loop = ({
+	branch,
+	index,
+	branchValue,
+}: {
+	branch: ContainerType
+	branchValue: any
+	index: number
+}) => {
+	const { value, isArray, key } = getValueDetails({
+		path: branch?.key,
+		index,
+		branchValue,
+	})
 
-	const child = containers && containers[0]
-	const childResumeKey = child && child?.resumeKey?.replace('{{index}}', '0')
-	const childResumeValue = childResumeKey ? getValue(childResumeKey) : null
-	const isChildValueArray = childResumeKey ? Array.isArray(childResumeValue) : false
-
-	const value = resumeKey?.replace('{{index}}', index.toString())
-		? getValue(resumeKey?.replace('{{index}}', index.toString()))
-		: null
-
-	if (isChildValueArray) {
-		const list = getValue(childResumeKey)
+	if (isArray) {
 		return {
-			resumeKey,
-			class: branch?.class,
-			tag,
-			containers: list.map((_, i) => {
-				const child = containers && containers[i]
-				const childResumeKey = child && child?.resumeKey?.replace('{{index}}', i.toString())
-
-				return loop({
-					branch: {
-						resumeKey: childResumeKey,
-						tag: child?.tag,
-						class: child?.class,
-						containers: child?.containers,
-					},
-					index: i,
-				})
+			ARRAY: true,
+			key,
+			branchValue: `${value.length}[]`,
+			// class: branch?.class,
+			tag: branch?.tag,
+			containers: value.map((_, i) => {
+				return loop({ branch: branch?.containers[0], branchValue: value[i], index: i })
 			}),
 		}
 	} else {
+		console.log('SINGLE', {
+			[branch.tag]: {
+				SINGLE: true,
+				key,
+				branchValue: value,
+			},
+		})
 		return {
-			value: Array.isArray(value)
-				? null
-				: value || resumeKey?.replace('{{index}}', index.toString()),
-			class: branch?.class,
-			tag,
-			containers: containers?.map((c, i) =>
-				loop({
+			SINGLE: true,
+			key,
+			branchValue: value,
+			// class: branch?.class,
+			tag: branch?.tag,
+			containers: branch?.containers?.map((c, i) => {
+				console.log(
+					'SINGLE',
+					getValueDetails({ branchValue, index: i, path: c?.key }).value
+				)
+
+				return loop({
 					branch: {
 						tag: c?.tag,
 						class: c?.class,
 						containers: c?.containers,
-						resumeKey: c?.resumeKey?.replace('{{index}}', i.toString()),
 					},
+					branchValue,
 					index: i,
 				})
-			),
+			}),
 		}
 	}
 }
 
-const getValue = (path: string) => {
-	return JSONPath({ path, json: resume })[0]
+const getValueDetails = ({
+	path,
+	branchValue,
+	index,
+}: {
+	path: string
+	index: number
+	branchValue: any
+}) => {
+	const key = path?.replace('{{index}}', index.toString()) || null
+	const value = path ? JSONPath({ path: key, json: branchValue })[0] : null
+
+	return {
+		isArray: Array.isArray(value),
+		value: value || null,
+		key,
+	}
 }
 
-export const themedResume = loop({ branch: theme as ContainerType, index: 0 })
+export const themedResume = loop({ branch: theme as ContainerType, branchValue: resume, index: 0 })

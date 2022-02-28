@@ -12,16 +12,14 @@
 
 	let className: string
 	export { className as class }
-	export let resumeKey: string
+	export let key: string
 	export let tag: string
 	export let containers: ContainerType[]
-	const isArray = resumeKey
-		? Array.isArray(JSONPath({ path: resumeKey, json: resume })[0])
-		: false
+	const isArray = key ? Array.isArray(JSONPath({ path: key, json: resume })[0]) : false
 </script>
 
 {#if isArray}
-	{#each JSONPath({ path: resumeKey, json: resume })[0] as _, index}
+	{#each JSONPath({ path: key, json: resume })[0] as _, index}
 		<Htmltag
 			tag={getHtmltag(tag)}
 			class={cc({
@@ -45,15 +43,15 @@
 					})}
 				>
 					<!-- {container.class}
-					{container.resumeKey}
-					{container?.resumeKey?.replace('{{index}}', i2.toString())}
+					{container.key}
+					{container?.key?.replace('{{index}}', i2.toString())}
 					{container.tag}
 					{container.containers?.length}
 					{i2} -->
 					<svelte:self
 						class={container?.class}
 						tag={getHtmltag(container.tag)}
-						resumeKey={container?.resumeKey?.replace('{{index}}', i2.toString())}
+						key={container?.key?.replace('{{index}}', i2.toString())}
 						containers={container?.containers}
 					/>
 				</Htmltag>
@@ -89,12 +87,12 @@
 				<svelte:self
 					class={container?.class}
 					tag={container?.tag}
-					resumeKey={container?.resumeKey?.replace('{{index}}', index.toString())}
+					key={container?.key?.replace('{{index}}', index.toString())}
 					containers={container?.containers}
 				/>
 			{/each}
-		{:else if resumeKey}
-			<ContainerLeaf {resumeKey} {tag} />
+		{:else if key}
+			<ContainerLeaf {key} {tag} />
 		{/if}
 	</Htmltag>
 {/if}

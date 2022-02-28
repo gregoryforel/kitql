@@ -1,0 +1,26 @@
+{
+	"key": "$.work",
+	"tag": "1",
+	"containers": [
+		{
+			"key": null,
+			"tag": "1.1",
+			"containers": [
+				{
+					"key": "$.work[{{index}}].name",
+					"tag": "1.1.1"
+				},
+				{
+					"key": "$.highlights",
+					"tag": "1.1.2",
+					"containers": [
+						{
+							"key": "$.highlights[{{index}}]",
+							"tag": "1.1.2.1"
+						}
+					]
+				}
+			]
+		}
+	]
+}
