@@ -61,12 +61,12 @@
 							"containers": [
 								{
 									"path": null,
-									"class": "work-experience-header",
+									"class": "work-experience-header uppercase text-gray-600 font-medium tracking-wider text-lg w-full border-b border-gray-200 mb-1",
 									"tag": "header",
 									"containers": [
 										{
 											"path": "$.sectionNames.work",
-											"class": "uppercase text-gray-600 font-medium tracking-wider text-lg w-full border-b border-gray-200",
+											"class": null,
 											"tag": "h2"
 										}
 									]
@@ -74,7 +74,7 @@
 
 								{
 									"path": "$.work",
-									"class": "work-experience-list flex flex-col gap-4",
+									"class": "work-experience-list flex flex-col gap-5",
 									"tag": "ul",
 									"containers": [
 										{
@@ -89,7 +89,7 @@
 													"containers": [
 														{
 															"path": null,
-															"class": "work-exp-item-header",
+															"class": "work-exp-item-header mb-1",
 															"tag": "header",
 															"containers": [
 																{
@@ -111,12 +111,12 @@
 																},
 																{
 																	"path": null,
-																	"class": "position-location-container flex justify-between",
+																	"class": "position-location-container flex justify-between items-baseline",
 																	"tag": "div",
 																	"containers": [
 																		{
 																			"path": "$.work[{{index}}].position",
-																			"class": "text-base text-gray-900 italic w-fit",
+																			"class": "text-sm text-gray-900 italic font-semibold w-fit",
 																			"tag": "div"
 																		},
 																		{
