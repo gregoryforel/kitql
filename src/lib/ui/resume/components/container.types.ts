@@ -1,5 +1,5 @@
 export interface ContainerType {
-	path?: string
+	value?: string
 	class?: string
 	tag: string
 	containers?: ContainerType[]

@@ -78,12 +78,12 @@
 									"containers": [
 										{
 											"path": "$.work",
-											"class": "work-exp flex flex-col bg-blue-300",
+											"class": "work-exp flex flex-col",
 											"tag": "article",
 											"containers": [
 												{
 													"path": null,
-													"class": "work-exp-header bg-red-300 todelete",
+													"class": "work-exp-header todelete",
 													"tag": "header",
 													"containers": [
 														{
@@ -124,7 +124,7 @@
 												},
 												{
 													"path": "$.work[{{index}}].highlights",
-													"class": "highlight-list list-disc ml-8 bg-green-300",
+													"class": "highlight-list list-disc ml-8",
 													"tag": "ul",
 													"containers": [
 														{

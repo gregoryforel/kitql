@@ -1,15 +1,13 @@
-import type { ContainerType } from './components/container.types'
 import { getValue, hydratePath } from './resume.helpers'
 
-const loop = ({
-	branch,
-	indexes,
-	resume,
-}: {
-	branch: ContainerType
-	indexes: number[]
-	resume
-}) => {
+interface Branch {
+	path?: string
+	class?: string
+	tag: string
+	containers?: Branch[]
+}
+
+const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; resume }) => {
 	const path = branch?.path
 	const hydratedPath = hydratePath({ path, indexes })
 	const tag = branch?.tag
@@ -19,9 +17,6 @@ const loop = ({
 		return {
 			tag,
 			class: branch?.class,
-			// type: 'ARRAY',
-			// path: hydratedPath,
-			// indexes: JSON.stringify(indexes),
 			containers: value.map((_, index) => {
 				return loop({
 					branch: branch.containers[0],
@@ -34,9 +29,6 @@ const loop = ({
 		return {
 			tag,
 			class: branch?.class,
-			// type: value ? 'SCALAR' : 'NULL',
-			// path: hydratedPath,
-			// indexes: JSON.stringify(indexes),
 			value,
 			containers: branch?.containers?.map((c, index) => {
 				return loop({
@@ -56,6 +48,6 @@ const loop = ({
 	}
 }
 
-export const buildResumeWithTheme = ({ resume, theme }: { resume; theme: ContainerType }) => {
-	return loop({ branch: theme as ContainerType, resume, indexes: [] })
+export const buildResumeWithTheme = ({ resume, theme }: { resume; theme: Branch }) => {
+	return loop({ branch: theme as Branch, resume, indexes: [] })
 }

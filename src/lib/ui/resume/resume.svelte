@@ -50,85 +50,14 @@
 <div class="flex justify-center p-8">
 	<div class="actualpage bg-white">
 		<div class="page">
-			<pre class="text-xs">{JSON.stringify(
-					buildResumeWithTheme({ resume, theme }),
-					null,
-					3
-				)}</pre>
-			<!-- NEW START -->
-			<!-- {#each theme.containers as container, index}
+			{#each buildResumeWithTheme({ resume, theme }).containers as container}
 				<Container
 					class={container.class}
 					tag={container.tag}
-					key={container.key?.replace('{{index}}', index)}
+					value={container.value}
 					containers={container.containers}
 				/>
-			{/each} -->
-			<!-- NEW END -->
-
-			<!-- OLD -->
-			<!-- <div class="grid [grid-template-areas:'header''content']">
-				<header class="[grid-area:header] w-full flex flex-col gap-2 mb-8">
-					<h1 class="uppercase text-gray-900 text-3xl font-semibold">
-						{resume.basics.name}
-					</h1>
-					<div class="flex gap-8">
-						<span class="text-gray-700">
-							<IconMail class="inline text-gray-500 mr-1" />{resume.basics.email}
-						</span>
-						<span class="text-gray-700">
-							<IconPhone class="inline text-gray-500 mr-1" />{resume.basics.phone}
-						</span>
-						<span class="text-gray-700">
-							<IconMapMarker class="inline text-gray-500 mr-1" />
-							{resume.basics.location.city}, {resume.basics.location.countryCode}
-						</span>
-					</div>
-				</header>
-				<div class="[grid-area:content] flex flex-col gap-8">
-					<article>
-						<header>
-							<h2
-								class="uppercase text-gray-600 font-medium tracking-wider text-lg w-full border-b border-gray-200"
-							>
-								Work Experience
-							</h2>
-						</header>
-						<div class="flex flex-col gap-4">
-							{#each resume.work as workExperience}
-								<article class="flex flex-col">
-									<header>
-										<div class="flex justify-between">
-											<h3 class="text-lg text-gray-900 font-bold">
-												{workExperience.name}
-											</h3>
-											<span>
-												{workExperience.startDate} - {workExperience.endDate}
-											</span>
-										</div>
-										<div class="flex justify-between">
-											<div class="text-base text-gray-900 italic">
-												{workExperience.position}
-											</div>
-											<span class="text-base text-gray-500 italic">
-												<IconMapMarker class="inline text-gray-400 mr-2" />
-												{workExperience.location}
-											</span>
-										</div>
-									</header>
-									<section>
-										<ul class="list-disc ml-8">
-											{#each workExperience.highlights as highlight}
-												<li>{highlight}</li>
-											{/each}
-										</ul>
-									</section>
-								</article>
-							{/each}
-						</div>
-					</article>
-				</div>
-			</div> -->
+			{/each}
 		</div>
 	</div>
 </div>
