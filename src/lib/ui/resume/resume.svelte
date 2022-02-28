@@ -50,6 +50,7 @@
 <div class="flex justify-center p-8">
 	<div class="actualpage bg-white">
 		<div class="page">
+			<!-- <pre>{JSON.stringify(buildResumeWithTheme({ resume, theme }).containers, null, 2)}</pre> -->
 			{#each buildResumeWithTheme({ resume, theme }).containers as container}
 				<Container
 					class={container.class}

@@ -56,12 +56,12 @@
 					"containers": [
 						{
 							"path": null,
-							"class": "work-exp-list",
+							"class": "work-experience",
 							"tag": "article",
 							"containers": [
 								{
 									"path": null,
-									"class": "work-exp-list-header",
+									"class": "work-experience-header",
 									"tag": "header",
 									"containers": [
 										{
@@ -74,64 +74,71 @@
 
 								{
 									"path": "$.work",
-									"class": "flex flex-col gap-4",
+									"class": "work-experience-list flex flex-col gap-4",
 									"tag": "ul",
 									"containers": [
 										{
 											"path": null,
-											"class": null,
+											"class": "work-exp-item-li",
 											"tag": "li",
 											"containers": [
 												{
 													"path": null,
-													"class": "work-exp-header todelete",
-													"tag": "header",
+													"class": "work-exp-item",
+													"tag": "article",
 													"containers": [
 														{
 															"path": null,
-															"class": "name-dates-container flex justify-between",
-															"tag": "div",
+															"class": "work-exp-item-header",
+															"tag": "header",
 															"containers": [
 																{
-																	"path": "$.work[{{index}}].name",
-																	"class": "text-lg text-gray-900 font-bold w-fit",
-																	"tag": "h3"
+																	"path": null,
+																	"class": "name-dates-container flex justify-between",
+																	"tag": "div",
+																	"containers": [
+																		{
+																			"path": "$.work[{{index}}].name",
+																			"class": "text-lg text-gray-900 font-bold w-fit",
+																			"tag": "h3"
+																		},
+																		{
+																			"path": "$.work[{{index}}].startDate - $.work[{{index}}].endDate",
+																			"class": "text-base text-gray-500 italic w-fit",
+																			"tag": "span"
+																		}
+																	]
 																},
 																{
-																	"path": "$.work[{{index}}].startDate - $.work[{{index}}].endDate",
-																	"class": "text-base text-gray-500 italic w-fit",
-																	"tag": "span"
+																	"path": null,
+																	"class": "position-location-container flex justify-between",
+																	"tag": "div",
+																	"containers": [
+																		{
+																			"path": "$.work[{{index}}].position",
+																			"class": "text-base text-gray-900 italic w-fit",
+																			"tag": "div"
+																		},
+																		{
+																			"path": "$.work[{{index}}].location",
+																			"class": "text-base text-gray-500 italic w-fit",
+																			"tag": "span"
+																		}
+																	]
 																}
 															]
 														},
 														{
-															"path": null,
-															"class": "position-location-container flex justify-between",
-															"tag": "div",
+															"path": "$.work[{{index}}].highlights",
+															"class": "work-exp-item-highlights list-disc ml-8",
+															"tag": "ul",
 															"containers": [
 																{
-																	"path": "$.work[{{index}}].position",
-																	"class": "text-base text-gray-900 italic w-fit",
-																	"tag": "div"
-																},
-																{
-																	"path": "$.work[{{index}}].location",
-																	"class": "text-base text-gray-500 italic w-fit",
-																	"tag": "span"
+																	"path": "$.work[{{index}}].highlights[{{index}}]",
+																	"class": "work-exp-item-highlight text-base text-gray-900",
+																	"tag": "li"
 																}
 															]
-														}
-													]
-												},
-												{
-													"path": "$.work[{{index}}].highlights",
-													"class": "highlight-list list-disc ml-8",
-													"tag": "ul",
-													"containers": [
-														{
-															"path": "$.work[{{index}}].highlights[{{index}}]",
-															"class": "highlight text-base text-gray-900 italic",
-															"tag": "li"
 														}
 													]
 												}

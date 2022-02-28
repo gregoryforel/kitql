@@ -20,7 +20,7 @@
 	})}
 >
 	{#if containers}
-		{#each containers as container, index}
+		{#each containers as container}
 			<svelte:self
 				class={container?.class}
 				tag={container?.tag}
@@ -29,6 +29,6 @@
 			/>
 		{/each}
 	{:else if value}
-		<ContainerLeaf {value} {tag} />
+		{value}
 	{/if}
 </Htmltag>
