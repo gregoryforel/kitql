@@ -4,7 +4,6 @@
 
 	import type { ContainerType } from './container.types'
 	import { getHtmltag } from './container.helpers'
-	import ContainerLeaf from './container-leaf.svelte'
 
 	let className: string
 	export { className as class }
