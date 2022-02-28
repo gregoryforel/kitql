@@ -46,14 +46,4 @@ describe('Resume', () => {
 			})
 		).toEqual('2014-03-01 - 2018-05-01')
 	})
-
-	// test('can access work experience at index 1', () => {
-	// 	expect(
-	// 		getValueDetails({ resume, index: [1], path: '$.work[{{index}}]' }).value
-	// 	).toEqual({
-	// 		position: 'Position 2',
-	// 		name: 'Company 2',
-	// 		highlights: ['Highlight 2.1', 'Highlight 2.2'],
-	// 	})
-	// })
 })

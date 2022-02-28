@@ -26,53 +26,21 @@
 				[className]: Boolean(className),
 			})}
 		>
-			<!-- <pre>{JSON.stringify(
-					containers.map((c) => ({ ...c, containers: null })),
-					null,
-					2
-				)}</pre> -->
 			{#each containers as container, i2}
-				<!-- <div class="w-72 flex justify-between bg-yellow-100">
-					<pre class="inline text-red-500">{getHtmltag(container.tag)}</pre>
-					<pre class="inline">{container.class.split(' ')[0]}</pre>
-				</div> -->
 				<Htmltag
 					tag={getHtmltag(container.tag)}
 					class={cc({
 						[container.class]: Boolean(container.class),
 					})}
 				>
-					<!-- {container.class}
-					{container.key}
-					{container?.key?.replace('{{index}}', i2.toString())}
-					{container.tag}
-					{container.containers?.length}
-					{i2} -->
 					<svelte:self
 						class={container?.class}
 						tag={getHtmltag(container.tag)}
-						key={container?.key?.replace('{{index}}', i2.toString())}
+						key={container?.path?.replace('{{index}}', i2.toString())}
 						containers={container?.containers}
 					/>
 				</Htmltag>
 			{/each}
-			<!-- {#each containers as container}
-				<Htmltag
-					tag={getHtmltag(container.tag)}
-					class={cc({
-						[container.class]: Boolean(container.class),
-					})}>{container.class}</Htmltag
-				>
-			{/each} -->
-			<!-- <Htmltag
-				tag={htmltag}
-				class={cc({
-					
-					[className]: Boolean(className),
-				})}
-			>
-				<pre>{JSON.stringify(containers, null, 2)}</pre>
-			</Htmltag> -->
 		</Htmltag>
 	{/each}
 {:else}
@@ -87,7 +55,7 @@
 				<svelte:self
 					class={container?.class}
 					tag={container?.tag}
-					key={container?.key?.replace('{{index}}', index.toString())}
+					key={container?.path?.replace('{{index}}', index.toString())}
 					containers={container?.containers}
 				/>
 			{/each}

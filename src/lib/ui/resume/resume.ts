@@ -18,9 +18,10 @@ const loop = ({
 	if (Array.isArray(value)) {
 		return {
 			tag,
-			type: 'ARRAY',
-			path: hydratedPath,
-			indexes: JSON.stringify(indexes),
+			class: branch?.class,
+			// type: 'ARRAY',
+			// path: hydratedPath,
+			// indexes: JSON.stringify(indexes),
 			containers: value.map((_, index) => {
 				return loop({
 					branch: branch.containers[0],
@@ -32,9 +33,10 @@ const loop = ({
 	} else {
 		return {
 			tag,
-			type: value ? 'SCALAR' : 'NULL',
-			path: hydratedPath,
-			indexes: JSON.stringify(indexes),
+			class: branch?.class,
+			// type: value ? 'SCALAR' : 'NULL',
+			// path: hydratedPath,
+			// indexes: JSON.stringify(indexes),
 			value,
 			containers: branch?.containers?.map((c, index) => {
 				return loop({
