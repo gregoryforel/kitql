@@ -1,7 +1,4 @@
-import { JSONPath } from 'jsonpath-plus'
-
-import resume from '../../../resume2.json'
-import theme from '../../../theme2.json'
+import resume from '../../../resume.json'
 import { getValue, hydratePath } from './resume.helpers'
 
 describe('Resume', () => {
@@ -18,6 +15,15 @@ describe('Resume', () => {
 		).toEqual('$.work[0].highlights[2]')
 	})
 
+	test('can hydrate path with multiple values', () => {
+		expect(
+			hydratePath({
+				indexes: [0],
+				path: '$.work[{{index}}].startDate - $.work[{{index}}].endDate',
+			})
+		).toEqual('$.work[0].startDate - $.work[0].endDate')
+	})
+
 	test('can get a value from path', () => {
 		expect(
 			getValue({
@@ -27,7 +33,18 @@ describe('Resume', () => {
 				}),
 				resume,
 			})
-		).toEqual('Highlight 1.3')
+		).toEqual('3. Led sales team')
+	})
+	test('can get a value from path with multiple values', () => {
+		expect(
+			getValue({
+				path: hydratePath({
+					indexes: [0, 2],
+					path: '$.work[{{index}}].startDate - $.work[{{index}}].endDate',
+				}),
+				resume,
+			})
+		).toEqual('2014-03-01 - 2018-05-01')
 	})
 
 	// test('can access work experience at index 1', () => {

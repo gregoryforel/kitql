@@ -1,6 +1,3 @@
-import resume from '../../../resume2.json'
-import theme from '../../../theme2.json'
-
 import type { ContainerType } from './components/container.types'
 import { getValue, hydratePath } from './resume.helpers'
 
@@ -57,4 +54,6 @@ const loop = ({
 	}
 }
 
-export const themedResume = loop({ branch: theme as ContainerType, resume, indexes: [] })
+export const buildResumeWithTheme = ({ resume, theme }: { resume; theme: ContainerType }) => {
+	return loop({ branch: theme as ContainerType, resume, indexes: [] })
+}

@@ -21,7 +21,7 @@
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
-	import { themedResume } from './resume'
+	import { buildResumeWithTheme } from './resume'
 
 	// let resumes
 	// ;(async () => {
@@ -50,7 +50,11 @@
 <div class="flex justify-center p-8">
 	<div class="actualpage bg-white">
 		<div class="page">
-			<pre class="text-xs">{JSON.stringify(themedResume, null, 3)}</pre>
+			<pre class="text-xs">{JSON.stringify(
+					buildResumeWithTheme({ resume, theme }),
+					null,
+					3
+				)}</pre>
 			<!-- NEW START -->
 			<!-- {#each theme.containers as container, index}
 				<Container
