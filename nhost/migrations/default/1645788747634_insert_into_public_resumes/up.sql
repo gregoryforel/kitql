@@ -1,0 +1,1 @@
+INSERT INTO "public"."resumes"("id", "created_at", "updated_at", "user_id", "name", "description", "data") VALUES (E'fa69f955-ceab-4072-9e75-d25a07f27312', E'2022-02-25T11:32:27.615362+00:00', E'2022-02-25T11:32:27.615362+00:00', E'7612b339-7ba0-4a00-a781-9d9fb38df1a6', E'Greg CV 1', null, null);

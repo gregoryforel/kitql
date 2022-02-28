@@ -16,16 +16,18 @@ array_relationships:
 select_permissions:
 - permission:
     columns:
-    - description
-    - name
+    - id
     - created_at
     - updated_at
-    - id
     - user_id
+    - name
+    - description
+    - data
     filter: {}
   role: public
 - permission:
     columns:
+    - data
     - description
     - name
     - created_at
