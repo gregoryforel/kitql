@@ -56,12 +56,12 @@
 					"containers": [
 						{
 							"path": null,
-							"class": null,
+							"class": "work-exp-list",
 							"tag": "article",
 							"containers": [
 								{
 									"path": null,
-									"class": null,
+									"class": "work-exp-list-header",
 									"tag": "header",
 									"containers": [
 										{
@@ -71,15 +71,16 @@
 										}
 									]
 								},
+
 								{
-									"path": null,
-									"class": "work-experience-list flex flex-col gap-4",
-									"tag": "div",
+									"path": "$.work",
+									"class": "flex flex-col gap-4",
+									"tag": "ul",
 									"containers": [
 										{
-											"path": "$.work",
-											"class": "work-exp flex flex-col",
-											"tag": "article",
+											"path": null,
+											"class": null,
+											"tag": "li",
 											"containers": [
 												{
 													"path": null,
