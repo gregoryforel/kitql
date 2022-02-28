@@ -25,11 +25,6 @@ const loop = ({
 			path: hydratedPath,
 			indexes: JSON.stringify(indexes),
 			containers: value.map((_, index) => {
-				console.log(`From first ARRAY, index ${index}`, {
-					branch: branch.containers[0],
-					indexes: [...indexes, index],
-					resume,
-				})
 				return loop({
 					branch: branch.containers[0],
 					indexes: [...indexes, index],
@@ -38,16 +33,6 @@ const loop = ({
 			}),
 		}
 	} else {
-		if (indexes[0] === 0) {
-			console.log(`${' '.repeat(branch.tag.split('.').length * 2)}Scalar ${branch.tag}`, {
-				containers: branch?.containers,
-				tag,
-				path,
-				hydratedPath,
-			})
-			console.log(' ')
-		}
-
 		return {
 			tag,
 			type: value ? 'SCALAR' : 'NULL',
