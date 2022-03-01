@@ -65,19 +65,22 @@
 
 <style>
 	/* @media all { */ /* I like using these */
-	div.actualpage {
+	/* div.actualpage {
 		min-height: 297mm;
-		height: 297mm; /* DIN A4 standard paper size */
+		height: 297mm;
 		min-width: 210mm;
 		width: 210mm;
-	}
+	} */
 	div.page {
 		/* margin: 0;  you don't really have to explicitly set it to 0 unless it's already set to something else */
 	}
-	/* } */
 
 	@media screen {
-		div.page {
+		.page {
+			min-height: 297mm;
+			height: 297mm;
+			min-width: 210mm;
+			width: 210mm;
 			margin: 10mm 10mm 10mm 10mm; /* printers usually have a bigger bottom margin*/
 		}
 	}
