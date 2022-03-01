@@ -3,6 +3,7 @@ import { getValue, hydratePath } from './resume.helpers'
 interface Branch {
 	path?: string
 	class?: string
+	id?: string
 	tag: string
 	containers?: Branch[]
 }
@@ -17,6 +18,7 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 		return {
 			tag,
 			class: branch?.class,
+			id: hydratedPath,
 			containers: value.map((_, index) => {
 				return loop({
 					branch: branch.containers[0],
@@ -29,12 +31,14 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 		return {
 			tag,
 			class: branch?.class,
+			id: hydratedPath,
 			value,
 			containers: branch?.containers?.map((c, index) => {
 				return loop({
 					branch: {
 						tag: c?.tag,
 						class: c?.class,
+						id: c?.path,
 						path: c?.path,
 						containers: c?.containers,
 					},

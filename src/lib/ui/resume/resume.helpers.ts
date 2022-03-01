@@ -57,3 +57,7 @@ export const getValue = ({ path, resume }: { path: string; resume: any }) => {
 		return value || null
 	}
 }
+
+export const buildId = ({ indexes, path }: { indexes: number[]; path: string }) => {
+	return path ? hydratePath({ indexes, path }) : null
+}
