@@ -99,7 +99,7 @@
 																},
 																{
 																	"path": "$.work[{{index}}].startDate - $.work[{{index}}].endDate",
-																	"class": "text-base text-slate-500 italic w-fit",
+																	"class": "text-sm text-slate-500 italic w-fit",
 																	"tag": "span"
 																}
 															]
@@ -111,12 +111,12 @@
 															"containers": [
 																{
 																	"path": "$.work[{{index}}].position",
-																	"class": "text-sm text-slate-900 italic font-semibold w-fit",
+																	"class": "text-base text-slate-900 font-semibold w-fit",
 																	"tag": "div"
 																},
 																{
 																	"path": "$.work[{{index}}].location",
-																	"class": "text-base text-slate-500 italic w-fit",
+																	"class": "text-sm text-slate-500 italic w-fit",
 																	"tag": "span"
 																}
 															]
@@ -130,7 +130,7 @@
 													"containers": [
 														{
 															"path": "$.work[{{index}}].highlights[{{index}}]",
-															"class": "work-exp-item-highlight text-sm text-slate-900",
+															"class": "work-exp-item-highlight text-base text-slate-900",
 															"tag": "li"
 														}
 													]
