@@ -8,16 +8,20 @@ const paperFormat = {
 	'US Letter': { width: '216mm', height: '279mm' },
 }
 
-function paperSizeStore(size?: PaperSize) {
-	const paperSize = writable<PaperSize>(size || 'A4')
+function paperSizeStore() {
+	const paperSize = writable<PaperSize>('A4')
 	const { subscribe, update, set } = paperSize
 
-	const width = derived(paperSize, ($paperSize) =>
-		$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width
+	const width = get(
+		derived(paperSize, ($paperSize) =>
+			$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width
+		).subscribe
 	)
 
-	const height = derived(paperSize, ($paperSize) =>
-		$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height
+	const height = get(
+		derived(paperSize, ($paperSize) =>
+			$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height
+		).subscribe
 	)
 
 	return {
@@ -30,4 +34,4 @@ function paperSizeStore(size?: PaperSize) {
 	}
 }
 
-export const paperSize = (size?: PaperSize) => paperSizeStore(size)
+export const paperSize = paperSizeStore()

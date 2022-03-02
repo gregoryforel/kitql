@@ -30,9 +30,12 @@
 	import { buildResumeWithTheme } from './resume'
 
 	// let pageInner
-	let pageSize: 'A4' | 'US Letter' = 'A4'
-	let pageWidth = pageSize === 'A4' ? '210mm' : '216mm'
-	let pageHeight = pageSize === 'A4' ? '297mm' : '279mm'
+	// let pageSize: 'A4' | 'US Letter' = 'A4'
+	// let pageWidth = pageSize === 'A4' ? '210mm' : '216mm'
+	// let pageHeight = pageSize === 'A4' ? '297mm' : '279mm'
+
+	// ('A4').width
+	// $: height = paperSize('A4').height
 
 	$: paginationStore = $pagination
 
@@ -60,7 +63,7 @@
 				b: paginationStore.translateX === 0,
 			})}
 			bind:this={paginationStore.page}
-			style="--page-width: {pageWidth}; --page-height: {pageHeight}"
+			style="--page-width: {paperSize.width}; --page-height: {paperSize.height}"
 		>
 			<Container
 				class={themedResume.class}
