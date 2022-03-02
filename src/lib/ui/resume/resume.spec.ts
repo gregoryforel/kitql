@@ -33,7 +33,7 @@ describe('Resume', () => {
 				}),
 				resume,
 			})
-		).toEqual('3. Led sales team')
+		).toEqual('Led sales team')
 	})
 	test('can get a value from path with multiple values', () => {
 		expect(
