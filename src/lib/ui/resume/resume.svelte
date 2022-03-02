@@ -41,7 +41,7 @@
 		console.log('pageInner scrollWidth', pageInner.scrollWidth)
 	}
 
-	$: transfer = $pagination
+	$: paginationStore = $pagination
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>
 
@@ -57,9 +57,9 @@
 				// [`[column-count:${10};]`]: true,
 				[`[column-width:277mm;]`]: true,
 				[`[column-gap:100000px;]`]: true,
-				a: transfer !== 0,
+				a: paginationStore.translateX !== 0,
 				// a: transfer !== 0,
-				b: transfer === 0,
+				b: paginationStore.translateX === 0,
 			})}
 			bind:this={pageInner}
 			style="--page-width: {pageWidth}; --page-height: {pageHeight}"

@@ -1,13 +1,25 @@
 import { writable } from 'svelte/store'
 
 function paginationStore() {
-	const { subscribe, update, set } = writable<number>(0)
+	const { subscribe, update, set } = writable<{ translateX }>({ translateX: 0 })
+
+	let pageInner
+
+	function calculatePagination() {
+		console.log('pageInner width', pageInner.clientWidth)
+		console.log('pageInner scrollWidth', pageInner.scrollWidth)
+	}
 
 	return {
+		calculatePagination,
+		pageInner,
 		set,
 		subscribe,
-		toggle: () => update((s) => (s === 0 ? -4210 : 0)),
-		nextPage: () => update((s) => s - 4210),
+		toggle: () =>
+			update((s) =>
+				s.translateX === 0 ? { ...s, translateX: -4210 } : { ...s, translateX: 0 }
+			),
+		nextPage: () => update((s) => ({ ...s, translateX: s.translateX - 4210 })),
 	}
 }
 
