@@ -21,11 +21,13 @@
 	import cc from 'classcat'
 	import { onMount } from 'svelte'
 
+	import { pagination } from '$lib/feature/pagination/pagination.store'
+	import { paperSize } from '$lib/feature/paper-size/paper-size.store'
+
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
-	import { pagination } from '$lib/feature/pagination/pagination.store'
 
 	// let pageInner
 	let pageSize: 'A4' | 'US Letter' = 'A4'
