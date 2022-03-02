@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { pagination } from '$lib/feature/pagination/pagination.store'
+
 	import cc from 'classcat'
 </script>
 
@@ -9,7 +11,7 @@
 		'bg-slate-400 p-8': true,
 	})}
 >
-	<button on:click={null} class="bg-white rounded text-base text-slate-900 px-2 py-1"
+	<button on:click={pagination.toggle} class="bg-white rounded text-base text-slate-900 px-2 py-1"
 		>Toggle</button
 	>
 </sider>

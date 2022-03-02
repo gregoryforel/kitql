@@ -25,6 +25,7 @@
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
+	import { pagination } from '$lib/feature/pagination/pagination.store'
 
 	let pageInner
 	let pageSize: 'A4' | 'US Letter' = 'A4'
@@ -40,11 +41,7 @@
 		console.log('pageInner scrollWidth', pageInner.scrollWidth)
 	}
 
-	export let transfer = 0
-	function toggle() {
-		transfer = transfer === 0 ? -4210 : 0
-	}
-
+	$: transfer = $pagination
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>
 
@@ -52,7 +49,7 @@
 	<title>About</title>
 </svelte:head>
 
-<div class="flex mx-auto justify-center p-8 flex-col w-fit gap-8">
+<div class="flex mx-auto justify-center px-8 py-2 flex-col w-fit gap-8">
 	<div class="page bg-white shadow-2xl print:shadow-none">
 		<div
 			class={cc({
