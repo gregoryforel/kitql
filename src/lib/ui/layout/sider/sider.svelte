@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { pagination } from '$lib/feature/pagination/pagination.store'
+	import { paperSize } from '$lib/feature/paper-size/paper-size.store'
 
 	import cc from 'classcat'
 </script>
@@ -13,5 +14,9 @@
 >
 	<button on:click={pagination.toggle} class="bg-white rounded text-base text-slate-900 px-2 py-1"
 		>Toggle</button
+	>
+	<button
+		on:click={() => paperSize.changeSize('US Letter')}
+		class="bg-white rounded text-base text-slate-900 px-2 py-1">Toggle</button
 	>
 </sider>

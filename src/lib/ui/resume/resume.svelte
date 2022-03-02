@@ -22,22 +22,12 @@
 	import { onMount } from 'svelte'
 
 	import { pagination } from '$lib/feature/pagination/pagination.store'
-	import { paperSize } from '$lib/feature/paper-size/paper-size.store'
+	import { height, width } from '$lib/feature/paper-size/paper-size.store'
 
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
-
-	// let pageInner
-	// let pageSize: 'A4' | 'US Letter' = 'A4'
-	// let pageWidth = pageSize === 'A4' ? '210mm' : '216mm'
-	// let pageHeight = pageSize === 'A4' ? '297mm' : '279mm'
-
-	// ('A4').width
-	// $: height = paperSize('A4').height
-
-	$: paginationStore = $pagination
 
 	onMount(() => {
 		pagination.calculatePagination()
@@ -55,15 +45,13 @@
 		<div
 			class={cc({
 				'page-inner': true,
-				// [`[column-count:${10};]`]: true,
 				[`[column-width:277mm;]`]: true,
 				[`[column-gap:100000px;]`]: true,
-				a: paginationStore.translateX !== 0,
-				// a: transfer !== 0,
-				b: paginationStore.translateX === 0,
+				a: $pagination.translateX !== 0,
+				b: $pagination.translateX === 0,
 			})}
-			bind:this={paginationStore.page}
-			style="--page-width: {paperSize.width}; --page-height: {paperSize.height}"
+			bind:this={$pagination.page}
+			style="--page-width: {$width}; --page-height: {$height}"
 		>
 			<Container
 				class={themedResume.class}
@@ -77,22 +65,6 @@
 </div>
 
 <style>
-	/* :root {
-		--page-width: 210mm;
-	} */
-	/* @media all { */ /* I like using these */
-	/* div.actualpage {
-		min-height: 297mm;
-		height: 297mm;
-		min-width: 210mm;
-		width: 210mm;
-	} */
-	.page-inner {
-		/* column-width: 277mm;
-		column-gap: 100000px; */
-		/* margin: 0;  you don't really have to explicitly set it to 0 unless it's already set to something else */
-	}
-
 	.a {
 		transform: translateX(calc(-100000px - var(--page-width)));
 	}
