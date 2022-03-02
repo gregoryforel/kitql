@@ -1,18 +1,31 @@
-import { writable } from 'svelte/store'
+import { writable, type Readable } from 'svelte/store'
+
+interface PaginationStore {
+	page: HTMLElement
+	translateX: number
+}
 
 function paginationStore() {
-	const { subscribe, update, set } = writable<{ translateX }>({ translateX: 0 })
+	const { subscribe, update, set } = writable<PaginationStore>({
+		page: null,
+		translateX: 0,
+	})
 
-	let pageInner
+	// https://github.com/sveltejs/svelte/issues/2060
+	// How to get the value of a store.
+	function get__store<T>(subscribe: Readable<T>['subscribe']) {
+		let $val: T
+		subscribe(($) => ($val = $))()
+		return $val
+	}
 
 	function calculatePagination() {
-		console.log('pageInner width', pageInner.clientWidth)
-		console.log('pageInner scrollWidth', pageInner.scrollWidth)
+		console.log('page width', get__store<PaginationStore>(subscribe).page.clientWidth)
+		console.log('page scrollWidth', get__store(subscribe).page.scrollWidth)
 	}
 
 	return {
 		calculatePagination,
-		pageInner,
 		set,
 		subscribe,
 		toggle: () =>

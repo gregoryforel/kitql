@@ -27,21 +27,17 @@
 	import { buildResumeWithTheme } from './resume'
 	import { pagination } from '$lib/feature/pagination/pagination.store'
 
-	let pageInner
+	// let pageInner
 	let pageSize: 'A4' | 'US Letter' = 'A4'
 	let pageWidth = pageSize === 'A4' ? '210mm' : '216mm'
 	let pageHeight = pageSize === 'A4' ? '297mm' : '279mm'
 
+	$: paginationStore = $pagination
+
 	onMount(() => {
-		calculatePagination()
+		pagination.calculatePagination()
 	})
 
-	function calculatePagination() {
-		console.log('pageInner width', pageInner.clientWidth)
-		console.log('pageInner scrollWidth', pageInner.scrollWidth)
-	}
-
-	$: paginationStore = $pagination
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>
 
@@ -61,7 +57,7 @@
 				// a: transfer !== 0,
 				b: paginationStore.translateX === 0,
 			})}
-			bind:this={pageInner}
+			bind:this={paginationStore.page}
 			style="--page-width: {pageWidth}; --page-height: {pageHeight}"
 		>
 			<Container
