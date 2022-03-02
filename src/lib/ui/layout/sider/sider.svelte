@@ -17,6 +17,10 @@
 	>
 	<button
 		on:click={() => paperSize.changeSize('US Letter')}
-		class="bg-white rounded text-base text-slate-900 px-2 py-1">Toggle</button
+		class="bg-white rounded text-base text-slate-900 px-2 py-1">US Letter</button
+	>
+	<button
+		on:click={() => paperSize.changeSize('A4')}
+		class="bg-white rounded text-base text-slate-900 px-2 py-1">A4</button
 	>
 </sider>

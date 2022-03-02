@@ -22,7 +22,7 @@
 	import { onMount } from 'svelte'
 
 	import { pagination } from '$lib/feature/pagination/pagination.store'
-	import { height, width } from '$lib/feature/paper-size/paper-size.store'
+	import { paperHeight, paperWidth } from '$lib/feature/paper-size/paper-size.store'
 
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
@@ -51,7 +51,7 @@
 				b: $pagination.translateX === 0,
 			})}
 			bind:this={$pagination.page}
-			style="--page-width: {$width}; --page-height: {$height}"
+			style="--page-width: {$paperWidth}; --page-height: {$paperHeight}"
 		>
 			<Container
 				class={themedResume.class}

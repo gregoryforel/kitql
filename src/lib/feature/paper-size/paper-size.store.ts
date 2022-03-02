@@ -19,10 +19,10 @@ function paperSizeStore() {
 
 export const paperSize = paperSizeStore()
 
-export const width = derived(paperSize, ($paperSize) =>
+export const paperWidth = derived(paperSize, ($paperSize) =>
 	$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width
 )
 
-export const height = derived(paperSize, ($paperSize) =>
+export const paperHeight = derived(paperSize, ($paperSize) =>
 	$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height
 )
