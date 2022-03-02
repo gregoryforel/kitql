@@ -15,50 +15,57 @@
 </script>
 
 <script lang="ts">
-	import cc from 'classcat'
 	import IconMail from '~icons/mdi/email'
 	import IconMapMarker from '~icons/mdi/map-marker'
 	import IconPhone from '~icons/mdi/phone'
+	import cc from 'classcat'
+	import { onMount } from 'svelte'
+
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
 
-	import { onMount } from 'svelte'
-	let b
-
+	let pageInner
 	// define what element should be observed by the observer
 	// and what types of mutations trigger the callback
 
+	let pageSize: 'A4' | 'US Letter' = 'A4'
+
+	let pageWidth = pageSize === 'A4' ? '210mm' : '216mm'
+	let pageHeight = pageSize === 'A4' ? '297mm' : '279mm'
+
 	onMount(() => {
-		measure()
-		let observer = new MutationObserver(function (mutations, observer) {
-			// fired when a mutation occurs
-			// console.log('obs', mutations, observer)
-			// console.log('obs', mutations[0].target.getBoundingClientRect().bottom)
-			// ...
-			mutations.forEach(function (mutation) {
-				// console.log(mutation)
-				// console.log(mutation.target.parentNode.getBoundingClientRect().bottom)
-			})
-		})
-		observer.observe(document, {
-			attributes: true,
-			characterData: true,
-			childList: true,
-			subtree: true,
-			attributeOldValue: true,
-			characterDataOldValue: true,
-		})
+		console.log('pageInner width', pageInner.clientWidth)
+		console.log('pageInner scrollWidth', pageInner.scrollWidth)
+		// measure()
+		// let observer = new MutationObserver(function (mutations, observer) {
+		// 	// fired when a mutation occurs
+		// 	// console.log('obs', mutations, observer)
+		// 	// console.log('obs', mutations[0].target.getBoundingClientRect().bottom)
+		// 	// ...
+		// 	mutations.forEach(function (mutation) {
+		// 		// console.log(mutation)
+		// 		// console.log(mutation.target.parentNode.getBoundingClientRect().bottom)
+		// 	})
+		// })
+		// observer.observe(document, {
+		// 	attributes: true,
+		// 	characterData: true,
+		// 	childList: true,
+		// 	subtree: true,
+		// 	attributeOldValue: true,
+		// 	characterDataOldValue: true,
+		// })
 	})
 
-	function measure() {
-		let box = document.querySelectorAll('h2')
-		// let width = box.clientWidth
-		// let height = box.clientHeight
-		// console.log(box[0].getBoundingClientRect().top)
-		b = box[0].getBoundingClientRect()
-	}
+	// function measure() {
+	// 	let box = document.querySelectorAll('h2')
+	// 	// let width = box.clientWidth
+	// 	// let height = box.clientHeight
+	// 	// console.log(box[0].getBoundingClientRect().top)
+	// 	b = box[0].getBoundingClientRect()
+	// }
 
 	let transfer = 0
 	function toggle() {
@@ -83,7 +90,6 @@
 	// 	}
 	// })()
 	const themedResume = buildResumeWithTheme({ resume, theme })
-	console.log(themedResume?.containers && themedResume?.containers[0])
 </script>
 
 <svelte:head>
@@ -96,33 +102,31 @@
 		<div
 			class={cc({
 				'page-inner': true,
+				// [`[column-count:${10};]`]: true,
+				[`[column-width:277mm;]`]: true,
+				[`[column-gap:100000px;]`]: true,
 				a: transfer !== 0,
+				// a: transfer !== 0,
 				b: transfer === 0,
 			})}
+			bind:this={pageInner}
+			style="--page-width: {pageWidth}; --page-height: {pageHeight}"
 		>
-			{#each themedResume.containers as container}
-				<Container
-					class={container.class}
-					id={container.id}
-					tag={container.tag}
-					value={container.value}
-					containers={container.containers}
-				/>
-			{/each}
-			{#each themedResume.containers as container}
-				<Container
-					class={container.class}
-					id={container.id}
-					tag={container.tag}
-					value={container.value}
-					containers={container.containers}
-				/>
-			{/each}
+			<Container
+				class={themedResume.class}
+				id={themedResume.id}
+				tag={themedResume.tag}
+				value={themedResume.value}
+				containers={themedResume.containers}
+			/>
 		</div>
 	</div>
 </div>
 
 <style>
+	/* :root {
+		--page-width: 210mm;
+	} */
 	/* @media all { */ /* I like using these */
 	/* div.actualpage {
 		min-height: 297mm;
@@ -131,14 +135,13 @@
 		width: 210mm;
 	} */
 	.page-inner {
-		column-count: 2;
-		column-width: 277mm;
-		column-gap: 4000mm;
+		/* column-width: 277mm;
+		column-gap: 100000px; */
 		/* margin: 0;  you don't really have to explicitly set it to 0 unless it's already set to something else */
 	}
 
 	.a {
-		transform: translateX(-4210mm);
+		transform: translateX(calc(-100000px - var(--page-width)));
 	}
 
 	.b {
@@ -147,10 +150,10 @@
 
 	@media screen {
 		.page-inner {
-			min-height: 297mm;
-			height: 297mm;
-			min-width: 210mm;
-			width: 210mm;
+			min-height: var(--page-height);
+			height: var(--page-height);
+			min-width: var(--page-width);
+			width: var(--page-width);
 			margin: 10mm 10mm 10mm 10mm; /* printers usually have a bigger bottom margin*/
 		}
 	}
@@ -159,46 +162,5 @@
 		div.page-inner {
 			margin: 0mm; /* Browser will apply the correct margins when it prints */
 		}
-	}
-
-	HTML CSS JSResult Skip Results Iframe EDIT ON .grow-wrap {
-		/* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
-		display: grid;
-	}
-	.grow-wrap::after {
-		/* Note the weird space! Needed to preventy jumpy behavior */
-		content: attr(data-replicated-value) ' ';
-
-		/* This is how textarea text behaves */
-		white-space: pre-wrap;
-
-		/* Hidden from view, clicks, and screen readers */
-		visibility: hidden;
-	}
-	.grow-wrap > textarea {
-		/* You could leave this, but after a user resizes, then it ruins the auto sizing */
-		resize: none;
-
-		/* Firefox shows scrollbar on growth, you can hide like this. */
-		overflow: hidden;
-	}
-	.grow-wrap > textarea,
-	.grow-wrap::after {
-		/* Identical styling required!! */
-		border: 1px solid black;
-		padding: 0.5rem;
-		font: inherit;
-
-		/* Place on top of each other */
-		grid-area: 1 / 1 / 2 / 2;
-	}
-
-	body {
-		margin: 2rem;
-		font: 1rem/1.4 system-ui, sans-serif;
-	}
-
-	label {
-		display: block;
 	}
 </style>
