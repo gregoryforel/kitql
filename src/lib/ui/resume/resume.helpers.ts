@@ -33,7 +33,6 @@ export const getValue = ({ path, resume }: { path: string; resume: any }) => {
 	// Finds text between double squared brackets [[whatever]]
 	const separator = /\[\[(.*?)\]\]/
 	const pathChunks = path?.split(separator)
-	console.log('test', path, pathChunks)
 
 	if (pathChunks?.length > 1) {
 		let value = ''
@@ -62,31 +61,4 @@ export const getValue = ({ path, resume }: { path: string; resume: any }) => {
 
 export const buildId = ({ indexes, path }: { indexes: number[]; path: string }) => {
 	return path ? hydratePath({ indexes, path }) : null
-}
-
-const getIndicesOf = ({
-	searchStr,
-	str,
-	caseSensitive,
-}: {
-	searchStr: string
-	str: string
-	caseSensitive: boolean
-}) => {
-	const searchStrLen = searchStr.length
-	if (searchStrLen == 0) {
-		return []
-	}
-	let startIndex = 0
-	let index: number
-	const indices = []
-	if (!caseSensitive) {
-		str = str.toLowerCase()
-		searchStr = searchStr.toLowerCase()
-	}
-	while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-		indices.push(index)
-		startIndex = index + searchStrLen
-	}
-	return indices
 }

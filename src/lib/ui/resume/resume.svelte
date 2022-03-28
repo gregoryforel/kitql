@@ -84,7 +84,7 @@
 	}
 
 	@media print {
-		div.page-inner {
+		.page-inner {
 			margin: 0mm; /* Browser will apply the correct margins when it prints */
 		}
 	}
