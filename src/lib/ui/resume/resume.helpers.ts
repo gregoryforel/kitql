@@ -30,8 +30,9 @@ export const hydratePath = ({ path, indexes }: { path: string; indexes: number[]
 }
 
 export const getValue = ({ path, resume }: { path: string; resume: any }) => {
-	// let value = null
-	const pathChunks = path?.split(' ')
+	// Finds text between double squared brackets [[whatever]]
+	const separator = /\[\[(.*?)\]\]/
+	const pathChunks = path?.split(separator)
 
 	if (pathChunks?.length > 1) {
 		let value = ''
@@ -43,7 +44,7 @@ export const getValue = ({ path, resume }: { path: string; resume: any }) => {
 					  JSONPath({ path: pathChunk, json: resume })[0]
 					: null
 			} else {
-				pathChunk = ` ${pathChunk} `
+				pathChunk = `${pathChunk}`
 			}
 
 			value = value.concat(pathChunk)

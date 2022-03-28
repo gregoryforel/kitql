@@ -1,16 +1,12 @@
 <script lang="ts">
-	// import Header from '$lib/header/Header.svelte'
+	import Sider from '$lib/ui/layout/sider/sider.svelte'
+
 	import '../app.css'
 </script>
 
-<!-- <Header /> -->
-
-<main>
-	<slot />
-</main>
-
-<!-- <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer> -->
-<style>
-</style>
+<div class={`app bg-slate-200 grid w-full [grid-template-areas:'sider_content']`}>
+	<Sider />
+	<main class="[grid-area:content] overflow-y-auto overflow-x-hidden print:overflow-hidden">
+		<slot />
+	</main>
+</div>
