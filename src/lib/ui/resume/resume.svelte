@@ -15,11 +15,7 @@
 </script>
 
 <script lang="ts">
-	import IconMail from '~icons/mdi/email'
-	import IconMapMarker from '~icons/mdi/map-marker'
-	import IconPhone from '~icons/mdi/phone'
 	import cc from 'classcat'
-	import { onMount } from 'svelte'
 
 	import { pagination } from '$lib/feature/pagination/pagination.store'
 	import { paperHeight, paperWidth } from '$lib/feature/paper-size/paper-size.store'
@@ -28,10 +24,6 @@
 	import theme from '../../../theme.json'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
-
-	onMount(() => {
-		pagination.calculatePagination()
-	})
 
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>

@@ -12,14 +12,6 @@ function paginationStore() {
 		translateX: 0,
 	})
 
-	function calculatePagination() {
-		const pageScrollWidth = get(subscribe).page.scrollWidth
-		const pageWidth = get<PaginationStore>(subscribe).page.clientWidth
-		console.log('page width', pageWidth)
-		console.log('page scrollWidth', pageScrollWidth)
-		console.log(Math.round((pageScrollWidth % 100000) / pageWidth))
-	}
-
 	const getMaxPageCount = (): number => {
 		const pageScrollWidth = get(subscribe).page.scrollWidth
 		const pageWidth = get<PaginationStore>(subscribe).page.clientWidth
@@ -27,7 +19,6 @@ function paginationStore() {
 	}
 
 	return {
-		calculatePagination,
 		set,
 		subscribe,
 		toggle: () =>
