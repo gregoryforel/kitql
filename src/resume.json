@@ -147,7 +147,7 @@
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "FINAL - ERP Migration",
+			"position": "MDM Program Manager - ERP Migration",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
@@ -167,8 +167,18 @@
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "FINAL - ERP Migration",
+			"position": "MDM Program Manager - ERP Migration",
 			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "FUCK - ERP Migration",
+			"name": "FUCK",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
