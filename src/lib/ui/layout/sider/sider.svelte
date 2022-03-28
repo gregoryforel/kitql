@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ArrowSmLeft from '~icons/heroicons-outline/arrow-sm-left'
+	import ArrowSmRight from '~icons/heroicons-outline/arrow-sm-right'
 	import cc from 'classcat'
 
 	import { pagination } from '$lib/feature/pagination/pagination.store'
@@ -22,6 +24,18 @@
 		'bg-slate-400 p-8': true,
 	})}
 >
+	<button
+		on:click={pagination.previousPage}
+		class="bg-white rounded text-base text-slate-900 px-2 py-1"
+	>
+		<ArrowSmLeft />
+	</button>
+	<button
+		on:click={pagination.nextPage}
+		class="bg-white rounded text-base text-slate-900 px-2 py-1"
+	>
+		<ArrowSmRight />
+	</button>
 	<button
 		on:click={pagination.toggle}
 		class="bg-white rounded text-base text-slate-900 px-2 py-1"
