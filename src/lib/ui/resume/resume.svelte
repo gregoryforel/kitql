@@ -18,7 +18,7 @@
 	import cc from 'classcat'
 
 	import { pagination } from '$lib/feature/pagination/pagination.store'
-	import { paperHeight, paperWidth } from '$lib/feature/paper-size/paper-size.store'
+	import { paperHeightMm, paperWidthMm } from '$lib/feature/paper-size/paper-size.store'
 
 	import resume from '../../../resume.json'
 	import theme from '../../../theme.json'
@@ -46,7 +46,7 @@
 				// [`translate-x-[calc(-${$pagination.currentPage}*000px-2*var(--page-width))]`]: $pagination.currentPage > 0,
 				[`translate-x-0`]: $pagination.currentPage === 0,
 			})}
-			style="--page-width: {$paperWidth}; --page-height: {$paperHeight}"
+			style="--page-width: {$paperWidthMm}; --page-height: {$paperHeightMm}"
 			bind:this={$pagination.page}
 		>
 			<Container

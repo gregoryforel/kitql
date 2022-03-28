@@ -3,8 +3,8 @@ import { derived, writable } from 'svelte/store'
 export type PaperSize = 'A4' | 'US Letter'
 
 const paperFormat = {
-	A4: { width: '210mm', height: '297mm' },
-	'US Letter': { width: '216mm', height: '279mm' },
+	A4: { width: 210, height: 297 },
+	'US Letter': { width: 216, height: 279 },
 }
 
 function paperSizeStore() {
@@ -25,4 +25,16 @@ export const paperWidth = derived(paperSize, ($paperSize) =>
 
 export const paperHeight = derived(paperSize, ($paperSize) =>
 	$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height
+)
+
+export const paperWidthMm = derived(
+	paperSize,
+	($paperSize) =>
+		`${$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width}mm`
+)
+
+export const paperHeightMm = derived(
+	paperSize,
+	($paperSize) =>
+		`${$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height}mm`
 )
