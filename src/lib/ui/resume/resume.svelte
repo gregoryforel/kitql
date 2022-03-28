@@ -34,19 +34,15 @@
 
 <div class="flex mx-auto justify-center px-8 py-2 flex-col w-fit gap-8">
 	<div class="page bg-white shadow-2xl print:shadow-none">
-		<div>translate-x-[calc(-{100000 * ($pagination.currentPage + 1)}px-var(--page-width))]</div>
-		<div>{$pagination.currentPage}</div>
 		<div
 			class={cc({
 				'page-inner': true,
 				[`[column-width:277mm;]`]: true,
 				[`[column-gap:100000px;]`]: true,
-				[`translate-x-[calc(-${$pagination.currentPage}*100000px-var(--page-width))]`]:
-					$pagination.currentPage > 0,
-				// [`translate-x-[calc(-${$pagination.currentPage}*000px-2*var(--page-width))]`]: $pagination.currentPage > 0,
+				translate: $pagination.currentPage > 0,
 				[`translate-x-0`]: $pagination.currentPage === 0,
 			})}
-			style="--page-width: {$paperWidthMm}; --page-height: {$paperHeightMm}"
+			style="--page-width: {$paperWidthMm}; --page-height: {$paperHeightMm}; --current-page: {$pagination.currentPage}"
 			bind:this={$pagination.page}
 		>
 			<Container
@@ -62,6 +58,13 @@
 
 <style>
 	@media screen {
+		.translate {
+			transform: translateX(
+				calc(
+					-1 * (var(--current-page) * 100000px) - var(--current-page) * var(--page-width)
+				)
+			);
+		}
 		.page-inner {
 			min-height: var(--page-height);
 			height: var(--page-height);
