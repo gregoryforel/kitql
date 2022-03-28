@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store'
 
-type PaperSize = 'A4' | 'US Letter'
+export type PaperSize = 'A4' | 'US Letter'
 
 const paperFormat = {
 	A4: { width: '210mm', height: '297mm' },
