@@ -4,9 +4,9 @@
 	import '../app.css'
 </script>
 
-<div class={`app h-screen bg-slate-200 grid w-full [grid-template-areas:'sider_content']`}>
+<div class={`app bg-slate-200 grid w-full [grid-template-areas:'sider_content']`}>
 	<Sider />
-	<main class="[grid-area:content] overflow-y-auto overflow-x-hidden">
+	<main class="[grid-area:content] overflow-y-auto overflow-x-hidden print:overflow-hidden">
 		<slot />
 	</main>
 </div>
