@@ -47,8 +47,8 @@
 				'page-inner': true,
 				[`[column-width:277mm;]`]: true,
 				[`[column-gap:100000px;]`]: true,
-				a: $pagination.translateX !== 0,
-				b: $pagination.translateX === 0,
+				[`translate-x-[calc(-100000px-var(--page-width))]`]: $pagination.translateX !== 0,
+				[`translate-x-0`]: $pagination.translateX === 0,
 			})}
 			bind:this={$pagination.page}
 			style="--page-width: {$paperWidth}; --page-height: {$paperHeight}"
@@ -65,14 +65,6 @@
 </div>
 
 <style>
-	.a {
-		transform: translateX(calc(-100000px - var(--page-width)));
-	}
-
-	.b {
-		transform: translateX(0mm);
-	}
-
 	@media screen {
 		.page-inner {
 			min-height: var(--page-height);
