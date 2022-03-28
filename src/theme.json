@@ -34,7 +34,7 @@
 									"tag": "span"
 								},
 								{
-									"path": "$.basics.location.countryCode",
+									"path": "$.basics.location.city[[,  ]]$.basics.location.countryCode",
 									"class": "text-slate-700 w-fit",
 									"tag": "span"
 								}
@@ -98,7 +98,7 @@
 																	"tag": "h3"
 																},
 																{
-																	"path": "$.work[{{index}}].startDate - $.work[{{index}}].endDate",
+																	"path": "$.work[{{index}}].startDate[[ - ]]$.work[{{index}}].endDate",
 																	"class": "text-sm text-slate-500 italic w-fit",
 																	"tag": "span"
 																}
