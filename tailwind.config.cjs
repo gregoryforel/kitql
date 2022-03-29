@@ -88,6 +88,10 @@ module.exports = {
 				'screen-2xl': '1536px',
 			},
 		},
+		fontSize: {
+			...defaultTheme.fontSize,
+			body: '.925rem',
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms'),

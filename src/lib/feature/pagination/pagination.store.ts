@@ -14,10 +14,12 @@ const paginationStore = () => {
 		translateX: 0,
 	})
 
-	const getMaxPageCount = (): number => {
-		const pageScrollWidth = get(subscribe)?.page?.scrollWidth
+	const getPageCount = (): number => {
+		const pageScrollWidth = get<PaginationStore>(subscribe)?.page?.scrollWidth
 		const pageWidth = get<PaginationStore>(subscribe)?.page?.clientWidth
-		return Math.round((pageScrollWidth % 100000) / pageWidth)
+		return isNaN(pageWidth) || isNaN(pageScrollWidth)
+			? 1
+			: Math.round((pageScrollWidth % 100000) / pageWidth)
 	}
 
 	return {
@@ -28,13 +30,14 @@ const paginationStore = () => {
 				s.translateX === 0 ? { ...s, translateX: -4210 } : { ...s, translateX: 0 }
 			),
 		goToFirst: () => update((s) => ({ ...s, currentPage: 0, translateX: 0 })),
-		goToLast: () => update((s) => ({ ...s, currentPage: getMaxPageCount() - 1 })),
-		nextPage: () =>
+		goToLast: () => update((s) => ({ ...s, currentPage: getPageCount() - 1 })),
+		goToNextPage: () =>
 			update((s) =>
-				s.currentPage < getMaxPageCount() - 1 ? { ...s, currentPage: s.currentPage + 1 } : s
+				s.currentPage < getPageCount() - 1 ? { ...s, currentPage: s.currentPage + 1 } : s
 			),
-		previousPage: () =>
+		goToPreviousPage: () =>
 			update((s) => (s.currentPage > 0 ? { ...s, currentPage: s.currentPage - 1 } : s)),
+		getPageCount,
 	}
 }
 

@@ -164,7 +164,7 @@
 													"containers": [
 														{
 															"path": "$.work[{{index}}].highlights[{{index}}]",
-															"class": "work-exp-item-highlight text-base text-gray-900",
+															"class": "work-exp-item-highlight text-body text-gray-900",
 															"tag": "li"
 														}
 													]
