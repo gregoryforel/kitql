@@ -89,23 +89,23 @@
 													"containers": [
 														{
 															"path": null,
-															"class": "name-dates-container flex justify-between",
+															"class": "name-dates-container flex justify-between items-baseline",
 															"tag": "div",
 															"containers": [
 																{
 																	"path": "$.work[{{index}}].name",
-																	"class": "text-lg text-gray-900 font-bold w-fit",
+																	"class": "font-medium w-fit flex gap-2 text-base text-gray-500 ",
 																	"tag": "h3"
 																},
 																{
 																	"path": null,
-																	"class": "text-sm text-gray-500 italic w-fit flex gap-1",
-																	"tag": "h3",
+																	"class": "text-sm text-gray-500 italic w-fit flex gap-2",
+																	"tag": "span",
 																	"containers": [
 																		{
 																			"path": "$.work[{{index}}].startDate",
 																			"class": null,
-																			"tag": "span"
+																			"tag": "time"
 																		},
 																		{
 																			"path": "[[-]]",
@@ -115,7 +115,7 @@
 																		{
 																			"path": "$.work[{{index}}].endDate",
 																			"class": null,
-																			"tag": "span"
+																			"tag": "time"
 																		}
 																	]
 																}
@@ -127,9 +127,26 @@
 															"tag": "div",
 															"containers": [
 																{
-																	"path": "$.work[{{index}}].position",
-																	"class": "text-base text-gray-900 font-semibold w-fit",
-																	"tag": "div"
+																	"path": null,
+																	"class": "flex gap-2 text-base text-gray-900 font-semibold w-fit",
+																	"tag": "span",
+																	"containers": [
+																		{
+																			"path": "$.work[{{index}}].position",
+																			"class": "font-semibold w-fit",
+																			"tag": "span"
+																		},
+																		{
+																			"path": "[[|]]",
+																			"class": "font-base w-fit",
+																			"tag": "span"
+																		},
+																		{
+																			"path": "$.work[{{index}}].summary",
+																			"class": "font-semibold w-fit",
+																			"tag": "span"
+																		}
+																	]
 																},
 																{
 																	"path": "$.work[{{index}}].location",

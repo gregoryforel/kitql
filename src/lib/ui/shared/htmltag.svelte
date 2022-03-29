@@ -22,33 +22,35 @@
 </script>
 
 {#if tag === 'article'}
-	<article {...$$props}>
+	<article {...$$restProps}>
 		<slot />
 	</article>
 {:else if tag === 'div'}
-	<div {...$$props}><slot /></div>
+	<div {...$$restProps}><slot /></div>
 {:else if tag === 'h1'}
-	<h1 {...$$props}><slot /></h1>
+	<h1 {...$$restProps}><slot /></h1>
 {:else if tag === 'h2'}
-	<h2 {...$$props}><slot /></h2>
+	<h2 {...$$restProps}><slot /></h2>
 {:else if tag === 'h3'}
-	<h3 {...$$props}><slot /></h3>
+	<h3 {...$$restProps}><slot /></h3>
 {:else if tag === 'h4'}
-	<h4 {...$$props}><slot /></h4>
+	<h4 {...$$restProps}><slot /></h4>
 {:else if tag === 'h5'}
-	<h5 {...$$props}><slot /></h5>
+	<h5 {...$$restProps}><slot /></h5>
 {:else if tag === 'header'}
-	<header {...$$props}><slot /></header>
+	<header {...$$restProps}><slot /></header>
 {:else if tag === 'li'}
-	<li {...$$props}>
+	<li {...$$restProps}>
 		<slot />
 	</li>
 {:else if tag === 'section'}
-	<section {...$$props}><slot /></section>
+	<section {...$$restProps}><slot /></section>
 {:else if tag === 'span'}
-	<span {...$$props}><slot /></span>
+	<span {...$$restProps}><slot /></span>
 {:else if tag === 'ul'}
-	<ul {...$$props}><slot /></ul>
+	<ul {...$$restProps}><slot /></ul>
+{:else if tag === 'time'}
+	<time {...$$restProps}><slot /></time>
 {:else}
-	<div {...$$props}><slot /></div>
+	<div {...$$restProps}><slot /></div>
 {/if}

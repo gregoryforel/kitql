@@ -15,9 +15,7 @@
 	export let containers: ContainerType[]
 
 	const toDate = (value: string) => {
-		const date = dayjs(value)
-
-		return date.isValid() ? date.format('MMM - YYYY') : value
+		return dayjs(value).format('MMM. YYYY')
 	}
 </script>
 
@@ -46,7 +44,12 @@
 			[className]: Boolean(className),
 		})}
 		{id}
+		datetime={dayjs(value).isValid() ? value : undefined}
 	>
-		{toDate(value)}
+		{#if dayjs(value).isValid()}
+			{toDate(value)}
+		{:else}
+			{value}
+		{/if}
 	</Htmltag>
 {/if}

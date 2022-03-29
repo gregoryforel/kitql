@@ -17,13 +17,13 @@
 	"sectionNames": { "work": "Work Experience" },
 	"work": [
 		{
-			"position": "Global Program Manager - Worldwide Inside Sales & Analytics",
+			"position": "Global Program Manager",
 			"name": "Microsoft",
 			"url": "https://microsoft.com",
 			"startDate": "2014-03-01",
 			"endDate": "Present",
 			"location": "Remote",
-			"summary": "",
+			"summary": "Worldwide Inside Sales & Analytics",
 			"highlights": [
 				"Developed PowerBI data model and dashboard used by 30+ executives, accounting for multi-billion US$ in sales.",
 				"Led sales team",
@@ -32,13 +32,13 @@
 			]
 		},
 		{
-			"position": "Group IT Program Manager - ERP & CRM implementations",
+			"position": "Group IT Program Manager",
 			"name": "OCS One Complete Solution",
 			"url": "https://www.ocs.com/",
 			"startDate": "2012-01-01",
 			"endDate": "2014-02-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP & CRM implementations",
 			"highlights": [
 				"Implemented SAGE CRM.",
 				"Led development of new ERP for new business.",
@@ -47,7 +47,87 @@
 			]
 		},
 		{
-			"position": "MDM Program Manager - ERP Migration",
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "FINAL",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "MDM Program Manager",
+			"name": "Kerry Group",
+			"url": "https://www.Kerrygroup.com/",
+			"startDate": "2010-01-01",
+			"endDate": "2012-01-01",
+			"location": "Dublin, Ireland",
+			"summary": "ERP Migration",
+			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
+		},
+		{
+			"position": "FINAL",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
@@ -57,123 +137,43 @@
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "MDM Program Manager - ERP Migration",
+			"position": "MDM Program Manager",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "MDM Program Manager - ERP Migration",
+			"position": "MDM Program Manager",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "MDM Program Manager - ERP Migration",
+			"position": "MDM Program Manager",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
-			"position": "MDM Program Manager - ERP Migration",
+			"position": "MDM Program Manager",
 			"name": "Kerry Group",
 			"url": "https://www.Kerrygroup.com/",
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "FINAL - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "FINAL - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
-			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		},
-		{
-			"position": "MDM Program Manager - ERP Migration",
-			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
-			"endDate": "2012-01-01",
-			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		},
 		{
@@ -183,7 +183,7 @@
 			"startDate": "2010-01-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
-			"summary": "",
+			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
 		}
 	],
