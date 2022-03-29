@@ -63,5 +63,4 @@
 			<ArrowSmRight />
 		</button>
 	</section>
-	<a href="#$.work[3].name">Go to Section 2</a>
 </sider>
