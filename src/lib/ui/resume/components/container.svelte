@@ -10,6 +10,19 @@
 	export let value: string
 	export let tag: string
 	export let containers: ContainerType[]
+
+	const toDate = (value: string) => {
+		const parsedDate = Date.parse(value)
+
+		return isNaN(parsedDate)
+			? value
+			: new Date(value).toLocaleDateString('en-us', {
+					weekday: 'long',
+					year: 'numeric',
+					month: 'short',
+					day: 'numeric',
+			  })
+	}
 </script>
 
 {#if containers}
@@ -38,6 +51,6 @@
 		})}
 		{id}
 	>
-		{value}
+		{toDate(value)}
 	</Htmltag>
 {/if}
