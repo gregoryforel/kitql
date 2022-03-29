@@ -1,6 +1,9 @@
 <script lang="ts">
 	import cc from 'classcat'
+	import dayjs from 'dayjs'
+
 	import Htmltag from '$lib/ui/shared/htmltag.svelte'
+
 	import type { ContainerType } from './container.types'
 	import { getHtmltag } from './container.helpers'
 
@@ -12,16 +15,9 @@
 	export let containers: ContainerType[]
 
 	const toDate = (value: string) => {
-		const parsedDate = Date.parse(value)
+		const date = dayjs(value)
 
-		return isNaN(parsedDate)
-			? value
-			: new Date(value).toLocaleDateString('en-us', {
-					weekday: 'long',
-					year: 'numeric',
-					month: 'short',
-					day: 'numeric',
-			  })
+		return date.isValid() ? date.format('MMM - YYYY') : value
 	}
 </script>
 
