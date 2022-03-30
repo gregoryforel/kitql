@@ -1,4 +1,5 @@
 export type HtmlTag =
+	| 'a'
 	| 'article'
 	| 'div'
 	| 'h1'
@@ -10,3 +11,5 @@ export type HtmlTag =
 	| 'li'
 	| 'section'
 	| 'span'
+	| 'time'
+	| 'ul'

@@ -46,6 +46,7 @@
 			bind:this={$pagination.page}
 		>
 			<Container
+				attributes={themedResume.attributes}
 				class={themedResume.class}
 				id={themedResume.id}
 				tag={themedResume.tag}

@@ -13,6 +13,7 @@
 	export let value: string
 	export let tag: string
 	export let containers: ContainerType[]
+	export let attributes: ContainerType['attributes']
 
 	const toDate = (value: string) => {
 		return dayjs(value).format('MMM. YYYY')
@@ -29,6 +30,7 @@
 	>
 		{#each containers as container}
 			<svelte:self
+				attributes={container?.attributes}
 				class={container?.class}
 				tag={container?.tag}
 				value={container?.value}
@@ -45,6 +47,8 @@
 		})}
 		{id}
 		datetime={dayjs(value).isValid() ? value : undefined}
+		href={attributes?.href ? attributes.href : undefined}
+		{...attributes}
 	>
 		{#if dayjs(value).isValid()}
 			{toDate(value)}
