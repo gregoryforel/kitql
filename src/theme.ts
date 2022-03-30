@@ -199,7 +199,52 @@ export const theme: Theme = {
 				},
 				{
 					path: null,
-					tag: null,
+					tag: 'article',
+					class: 'skills-and-certifications resume-section',
+					containers: [
+						{
+							path: null,
+							class: 'skills-and-certifications-header resume-section-header uppercase text-gray-600 font-medium tracking-wider text-lg w-full border-b border-gray-200 mb-1',
+							tag: 'header',
+							containers: [
+								{
+									path: '[[Skills & Certifications]]',
+									class: null,
+									tag: 'h2',
+								},
+							],
+						},
+						{
+							path: '$.certificates',
+							tag: 'ul',
+							class: 'education-list flex-col list-disc ml-8',
+							containers: [
+								{
+									path: null,
+									class: 'education-item-li',
+									tag: 'li',
+									containers: [
+										{
+											path: null,
+											class: 'education-item flex',
+											tag: 'article',
+											containers: [
+												{
+													attributes: {
+														href: '$.certificates[{{index}}].url',
+														target: '[[_blank]]',
+													},
+													path: '$.certificates[{{index}}].name',
+													class: null,
+													tag: 'a',
+												},
+											],
+										},
+									],
+								},
+							],
+						},
+					],
 				},
 				{
 					path: null,
