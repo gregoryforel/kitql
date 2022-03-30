@@ -1,8 +1,5 @@
-export interface ContainerType {
-	attributes?: { href?: string; datetime?: string }
-	value?: string
-	class?: string
+import type { Theme } from '$lib/data-access/themes/themes.types'
+
+export interface ContainerType extends Theme {
 	id?: string
-	tag: string
-	containers?: ContainerType[]
 }

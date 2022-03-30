@@ -199,6 +199,10 @@ export const theme: Theme = {
 				},
 				{
 					path: null,
+					tag: null,
+				},
+				{
+					path: null,
 					class: 'education resume-section',
 					tag: 'article',
 					containers: [
@@ -208,7 +212,7 @@ export const theme: Theme = {
 							tag: 'header',
 							containers: [
 								{
-									path: '[[Education & Certifications]]',
+									path: '[[Education]]',
 									class: null,
 									tag: 'h2',
 								},
