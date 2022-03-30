@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store'
-import { get } from '../helpers/store.helper'
+
+import { get } from '../store.helper'
 
 interface PaginationStore {
 	page: HTMLElement

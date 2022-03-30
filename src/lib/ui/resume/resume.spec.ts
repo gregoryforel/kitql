@@ -1,4 +1,4 @@
-import resume from '../../../resume.json'
+import { resume } from '../../../resume'
 import { getValue, hydratePath } from './resume.helpers'
 
 describe('Resume', () => {

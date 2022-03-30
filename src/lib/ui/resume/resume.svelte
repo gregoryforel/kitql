@@ -17,11 +17,11 @@
 <script lang="ts">
 	import cc from 'classcat'
 
-	import { pagination } from '$lib/feature/pagination/pagination.store'
-	import { paperHeightMm, paperWidthMm } from '$lib/feature/paper-size/paper-size.store'
+	import { pagination } from '$lib/data-access/pagination/pagination.store'
+	import { paperHeightMm, paperWidthMm } from '$lib/data-access/paper-size/paper-size.store'
 
-	import resume from '../../../resume.json'
-	import theme from '../../../theme.json'
+	import { resume } from '../../../resume'
+	import { theme } from '../../../theme'
 	import Container from './components/container.svelte'
 	import { buildResumeWithTheme } from './resume'
 

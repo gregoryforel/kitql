@@ -3,8 +3,8 @@
 	import ArrowSmRight from '~icons/heroicons-outline/arrow-sm-right'
 	import cc from 'classcat'
 
-	import { pagination } from '$lib/feature/pagination/pagination.store'
-	import { paperSize, type PaperSize } from '$lib/feature/paper-size/paper-size.store'
+	import { paperSize, type PaperSize } from '$lib/data-access/paper-size/paper-size.store'
+	import { pagination } from '$lib/data-access/pagination/pagination.store'
 
 	$: isMonopage = pagination.getPageCount() === 1
 	const paperSizeBtnStyleCls = (btnType: PaperSize, paperSize) => {
