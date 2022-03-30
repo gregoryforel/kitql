@@ -145,10 +145,6 @@ export const resume = {
 			name: 'BI',
 			keywords: ['SQL', 'PowerBI', 'DAX', 'Excel', 'Data Model', 'ETL'],
 		},
-		{
-			name: 'MS Office',
-			keywords: ['SQL', 'PowerBI', 'DAX', 'Excel'],
-		},
 	],
 	languages: [
 		{

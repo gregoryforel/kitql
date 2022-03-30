@@ -215,18 +215,56 @@ export const theme: Theme = {
 							],
 						},
 						{
-							path: '$.certificates',
+							path: '$.skills',
 							tag: 'ul',
-							class: 'education-list flex-col list-disc ml-8',
+							class: 'skills-and-certifications-list flex-col list-disc ml-8',
 							containers: [
 								{
 									path: null,
-									class: 'education-item-li',
+									class: 'skills-and-certifications-item-li',
 									tag: 'li',
 									containers: [
 										{
 											path: null,
-											class: 'education-item flex',
+											class: 'skills-and-certifications-item flex gap-1',
+											tag: 'article',
+											containers: [
+												{
+													path: '$.skills[{{index}}].name',
+													class: null,
+													tag: 'div',
+												},
+												{
+													path: '$.skills[{{index}}].keywords',
+													tag: 'ul',
+													class: 'skills-and-certifications-list flex gap-1',
+													containers: [
+														{
+															path: '$.skills[{{index}}].keywords[{{index}}]',
+															tag: 'li',
+															class: '',
+														},
+													],
+												},
+											],
+										},
+									],
+								},
+							],
+						},
+						{
+							path: '$.certificates',
+							tag: 'ul',
+							class: 'skills-and-certifications-list flex-col list-disc ml-8',
+							containers: [
+								{
+									path: null,
+									class: 'skills-and-certifications-item-li',
+									tag: 'li',
+									containers: [
+										{
+											path: null,
+											class: 'skills-and-certifications-item flex',
 											tag: 'article',
 											containers: [
 												{
