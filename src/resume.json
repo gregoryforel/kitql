@@ -14,7 +14,6 @@
 			"region": "Barcelona"
 		}
 	},
-	"sectionNames": { "work": "Work Experience" },
 	"work": [
 		{
 			"position": "Global Program Manager",
@@ -22,13 +21,16 @@
 			"url": "https://microsoft.com",
 			"startDate": "2014-03-01",
 			"endDate": "Present",
-			"location": "Remote",
+			"location": "EMEA - remote",
 			"summary": "Worldwide Inside Sales & Analytics",
 			"highlights": [
-				"Developed PowerBI data model and dashboard used by 30+ executives, accounting for multi-billion US$ in sales.",
-				"Led sales team",
-				"Led sales team",
-				"Led sales team"
+				"Marketing automation",
+				"Dynamics CRM Online & AX (ERP)",
+				"Customer Success",
+				"Demand Generation Full-Cycle Sales outsourcing",
+				"Led onboarding of 10 countries while coordinating Subsidiaries, Microsoft Partners and Service Providers.",
+				"Outsourced Sales execution ",
+				"Developed PowerBI data model and dashboard used by 30+ executives, accounting for multi-billion US$ in sales."
 			]
 		},
 		{
@@ -47,75 +49,119 @@
 			]
 		},
 		{
-			"position": "MDM Program Manager",
+			"position": "Program Manager",
 			"name": "Kerry Group",
-			"url": "https://www.Kerrygroup.com/",
-			"startDate": "2010-01-01",
+			"url": "https://www.kerrygroup.com/",
+			"startDate": "2009-02-01",
 			"endDate": "2012-01-01",
 			"location": "Dublin, Ireland",
 			"summary": "ERP Migration",
 			"highlights": ["Too much work", "Streamlined processes.", "And many more improvements."]
-		}
-	],
-	"volunteer": [
+		},
 		{
-			"organization": "Organization",
-			"position": "Volunteer",
-			"url": "https://organization.com/",
-			"startDate": "2012-01-01",
-			"endDate": "2013-01-01",
-			"summary": "Description…",
-			"highlights": ["Awarded 'Volunteer of the Month'"]
+			"position": "Digital Transformation Manager",
+			"name": "Impsa",
+			"url": "https://www.impsa.com/",
+			"startDate": "2005-08-01",
+			"endDate": "2009-02-01",
+			"location": "Mendoza, Argentina",
+			"summary": "Engineering",
+			"highlights": [
+				"Led team of 30 engineers to replace 2D CAD with SolidEdge and TeamCenter.",
+				"Established new workflow and trained 120 staff in Engineering Department and ensured smooth change management."
+			]
 		}
 	],
+	"volunteer": [],
 	"education": [
 		{
-			"institution": "University",
-			"url": "https://institution.com/",
-			"area": "Software Development",
-			"studyType": "Bachelor",
-			"startDate": "2011-01-01",
-			"endDate": "2013-01-01",
-			"score": "4.0",
-			"courses": ["DB1101 - Basic SQL"]
-		}
-	],
-	"awards": [
+			"institution": "UNCuyo, Universidad Nacional de Cuyo",
+			"url": "https://www.uncuyo.edu.ar/",
+			"area": "Logistics",
+			"location": "Mendoza, Argentina",
+			"studyType": "Master in",
+			"startDate": "2005-07-01",
+			"endDate": "2007-05-01",
+			"score": null,
+			"courses": []
+		},
 		{
-			"title": "Award",
-			"date": "2014-11-01",
-			"awarder": "Company",
-			"summary": "There is no spoon."
+			"institution": "ENIM, École Nationale des Ingénieurs de Metz",
+			"url": "https://institution.com/",
+			"area": "Mechanical Engineering",
+			"location": "Metz, France",
+			"studyType": "Master in",
+			"startDate": "2000-09-01",
+			"endDate": "2005-06-30",
+			"score": null,
+			"courses": []
 		}
 	],
+	"awards": [],
 	"certificates": [
 		{
-			"name": "Certificate",
-			"date": "2021-11-07",
-			"issuer": "Company",
-			"url": "https://certificate.com"
-		}
-	],
-	"publications": [
+			"name": "CSM - Certified Scrum Master",
+			"date": "2013-08-01",
+			"issuer": "Scrum Alliance",
+			"url": "https://scrumalliance.org/"
+		},
 		{
-			"name": "Publication",
-			"publisher": "Company",
-			"releaseDate": "2014-10-01",
-			"url": "https://publication.com",
-			"summary": "Description…"
+			"name": "PS, Professional Scrum MasterM",
+			"date": "2013-08-01",
+			"issuer": "Scrum",
+			"url": "https://scrum.org/"
+		},
+		{
+			"name": "MSP - Program Management",
+			"date": "2013-08-22",
+			"issuer": "APMG-PRINCE2",
+			"url": null
+		},
+		{
+			"name": "PMP",
+			"date": "2011-08-22",
+			"issuer": "PMI",
+			"url": "https://pmi.org/"
 		}
 	],
+	"publications": [],
 	"skills": [
 		{
 			"name": "Web Development",
-			"level": "Master",
-			"keywords": ["HTML", "CSS", "JavaScript"]
+			"keywords": [
+				"HTML",
+				"CSS",
+				"JavaScript",
+				"Typescript",
+				"React",
+				"Svelte",
+				"NextJS",
+				"GraphQL",
+				"Node",
+				"Git"
+			]
+		},
+		{
+			"name": "BI",
+			"keywords": ["SQL", "PowerBI", "DAX", "Excel", "Data Model", "ETL"]
+		},
+		{
+			"name": "MS Office",
+			"keywords": ["SQL", "PowerBI", "DAX", "Excel"]
 		}
 	],
 	"languages": [
 		{
 			"language": "English",
+			"fluency": "Bilingual Proficiency"
+		},
+		{
+			"language": "French",
 			"fluency": "Native speaker"
+		},
+		{
+			"language": "Spanish",
+			"fluency": "Bilingual Proficiency"
 		}
 	],
 	"interests": [
@@ -124,24 +170,6 @@
 			"keywords": ["Ferrets", "Unicorns"]
 		}
 	],
-	"references": [
-		{
-			"name": "Jane Doe",
-			"reference": "Reference…"
-		}
-	],
-	"projects": [
-		{
-			"name": "Project",
-			"description": "Description…",
-			"highlights": ["Won award at AIHacks 2016"],
-			"keywords": ["HTML"],
-			"startDate": "2019-01-01",
-			"endDate": "2021-01-01",
-			"url": "https://project.com/",
-			"roles": ["Team Lead"],
-			"entity": "Entity",
-			"type": "application"
-		}
-	]
+	"references": [],
+	"projects": []
 }

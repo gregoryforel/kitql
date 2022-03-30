@@ -1,6 +1,9 @@
+import dayjs from 'dayjs'
+import type { ContainerType } from './components/container.types'
 import { getValue, hydratePath } from './resume.helpers'
 
 interface Branch {
+	attributes?: ContainerType['attributes']
 	path?: string
 	class?: string
 	id?: string
@@ -9,16 +12,28 @@ interface Branch {
 }
 
 const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; resume }) => {
-	const path = branch?.path
-	const hydratedPath = hydratePath({ path, indexes })
+	const hydratedValuePath = hydratePath({ path: branch?.path, indexes })
 	const tag = branch?.tag
-	const value = getValue({ path: hydratedPath, resume })
+	let value = getValue({ path: hydratedValuePath, resume })
+	branch.attributes && console.log('c', branch.attributes)
+
+	if (branch?.attributes) {
+		switch (true) {
+			case Boolean(branch?.attributes['datetime']):
+				value = dayjs(value).isValid() ? dayjs(value).format('MMM. YYYY') : value
+				break
+
+			default:
+				break
+		}
+	}
 
 	if (Array.isArray(value)) {
 		return {
+			attributes: branch.attributes,
 			tag,
-			class: branch?.class,
-			id: hydratedPath,
+			class: branch.class,
+			id: hydratedValuePath,
 			containers: value.map((_, index) => {
 				return loop({
 					branch: branch.containers[0],
@@ -29,13 +44,26 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 		}
 	} else {
 		return {
+			attributes: branch.attributes,
 			tag,
 			class: branch?.class,
-			id: hydratedPath,
+			id: hydratedValuePath,
 			value,
 			containers: branch?.containers?.map((c, index) => {
+				const attributes = c.attributes && JSON.parse(JSON.stringify(c.attributes)) // Deep copy
+				attributes &&
+					Object.keys(attributes).forEach((key) => {
+						const attribute = getValue({
+							path: hydratePath({ path: attributes[key], indexes }),
+							resume,
+						})
+
+						attributes[key] = attribute
+					})
+
 				return loop({
 					branch: {
+						attributes,
 						tag: c?.tag,
 						class: c?.class,
 						id: c?.path,
@@ -43,7 +71,7 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 						containers: c?.containers,
 					},
 					resume,
-					indexes: Array.isArray(getValue({ path: hydratedPath, resume }))
+					indexes: Array.isArray(getValue({ path: hydratedValuePath, resume }))
 						? [...indexes, index]
 						: indexes,
 				})

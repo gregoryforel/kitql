@@ -1,24 +1,6 @@
 <script lang="ts">
 	import type { HtmlTag } from './htmltag.types'
 	export let tag: HtmlTag
-
-	// let el
-	// onMount(() => {
-	// 	const observer = new MutationObserver(function (mutations, observer) {
-	// 		// fired when a mutation occurs
-	// 		// console.log('obs', mutations, observer)
-	// 		bottom = mutations[0].target.getBoundingClientRect().bottom
-	// 		// ...
-	// 	})
-	// 	observer.observe(document.querySelector('.country'), {
-	// 		attributes: true,
-	// 		characterData: true,
-	// 		childList: true,
-	// 		subtree: true,
-	// 		attributeOldValue: true,
-	// 		characterDataOldValue: true,
-	// 	})
-	// })
 </script>
 
 {#if tag === 'article'}
@@ -27,6 +9,8 @@
 	</article>
 {:else if tag === 'div'}
 	<div {...$$restProps}><slot /></div>
+{:else if tag === 'a'}
+	<a {...$$restProps}><slot /></a>
 {:else if tag === 'h1'}
 	<h1 {...$$restProps}><slot /></h1>
 {:else if tag === 'h2'}

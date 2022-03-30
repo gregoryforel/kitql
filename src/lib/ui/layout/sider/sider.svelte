@@ -6,7 +6,7 @@
 	import { pagination } from '$lib/feature/pagination/pagination.store'
 	import { paperSize, type PaperSize } from '$lib/feature/paper-size/paper-size.store'
 
-	const isMonopage = pagination.getPageCount() === 1
+	$: isMonopage = pagination.getPageCount() === 1
 	const paperSizeBtnStyleCls = (btnType: PaperSize, paperSize) => {
 		return cc({
 			paperSizeBtnStyleCls: true,

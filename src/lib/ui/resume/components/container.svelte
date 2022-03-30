@@ -1,6 +1,5 @@
 <script lang="ts">
 	import cc from 'classcat'
-	import dayjs from 'dayjs'
 
 	import Htmltag from '$lib/ui/shared/htmltag.svelte'
 
@@ -13,10 +12,7 @@
 	export let value: string
 	export let tag: string
 	export let containers: ContainerType[]
-
-	const toDate = (value: string) => {
-		return dayjs(value).format('MMM. YYYY')
-	}
+	export let attributes: ContainerType['attributes']
 </script>
 
 {#if containers}
@@ -29,6 +25,7 @@
 	>
 		{#each containers as container}
 			<svelte:self
+				attributes={container?.attributes}
 				class={container?.class}
 				tag={container?.tag}
 				value={container?.value}
@@ -44,12 +41,8 @@
 			[className]: Boolean(className),
 		})}
 		{id}
-		datetime={dayjs(value).isValid() ? value : undefined}
+		{...attributes}
 	>
-		{#if dayjs(value).isValid()}
-			{toDate(value)}
-		{:else}
-			{value}
-		{/if}
+		{value}
 	</Htmltag>
 {/if}

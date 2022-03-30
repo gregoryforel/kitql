@@ -37,7 +37,7 @@ const paginationStore = () => {
 			),
 		goToPreviousPage: () =>
 			update((s) => (s.currentPage > 0 ? { ...s, currentPage: s.currentPage - 1 } : s)),
-		getPageCount,
+		getPageCount: () => getPageCount(),
 	}
 }
 
