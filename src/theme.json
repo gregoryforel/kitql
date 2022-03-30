@@ -237,9 +237,20 @@
 															"tag": "div",
 															"containers": [
 																{
-																	"path": "$.education[{{index}}].institution",
+																	"path": null,
 																	"class": "font-medium w-fit flex gap-2 text-base text-gray-500 ",
-																	"tag": "h3"
+																	"tag": "h3",
+																	"containers": [
+																		{
+																			"attributes": {
+																				"href": "$.education[{{index}}].url",
+																				"target": "[[_blank]]"
+																			},
+																			"path": "$.education[{{index}}].institution",
+																			"class": null,
+																			"tag": "a"
+																		}
+																	]
 																},
 																{
 																	"path": null,
