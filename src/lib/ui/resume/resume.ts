@@ -1,6 +1,8 @@
+import type { ContainerType } from './components/container.types'
 import { getValue, hydratePath } from './resume.helpers'
 
 interface Branch {
+	attributes?: ContainerType['attributes']
 	path?: string
 	class?: string
 	id?: string
@@ -9,16 +11,18 @@ interface Branch {
 }
 
 const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; resume }) => {
-	const path = branch?.path
-	const hydratedPath = hydratePath({ path, indexes })
+	const hydratedValuePath = hydratePath({ path: branch?.path, indexes })
 	const tag = branch?.tag
-	const value = getValue({ path: hydratedPath, resume })
+	// attributes && console.log('attributes', attributes)
+
+	const value = getValue({ path: hydratedValuePath, resume })
 
 	if (Array.isArray(value)) {
 		return {
+			attributes: branch.attributes,
 			tag,
-			class: branch?.class,
-			id: hydratedPath,
+			class: branch.class,
+			id: hydratedValuePath,
 			containers: value.map((_, index) => {
 				return loop({
 					branch: branch.containers[0],
@@ -29,13 +33,24 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 		}
 	} else {
 		return {
+			attributes: branch.attributes,
 			tag,
 			class: branch?.class,
-			id: hydratedPath,
+			id: hydratedValuePath,
 			value,
 			containers: branch?.containers?.map((c, index) => {
+				const attributes = c.attributes && JSON.parse(JSON.stringify(c.attributes)) // Deep copy
+				attributes &&
+					Object.keys(attributes).forEach((key) => {
+						attributes[key] = getValue({
+							path: hydratePath({ path: attributes[key], indexes }),
+							resume,
+						})
+					})
+
 				return loop({
 					branch: {
+						attributes,
 						tag: c?.tag,
 						class: c?.class,
 						id: c?.path,
@@ -43,7 +58,7 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 						containers: c?.containers,
 					},
 					resume,
-					indexes: Array.isArray(getValue({ path: hydratedPath, resume }))
+					indexes: Array.isArray(getValue({ path: hydratedValuePath, resume }))
 						? [...indexes, index]
 						: indexes,
 				})
