@@ -18,7 +18,9 @@
 	</style>
 </svelte:head>
 
-<div class={`app bg-slate-200 grid w-full [grid-template-areas:'sider_content']`}>
+<div
+	class={`app bg-slate-200 grid w-full h-screen overflow-hidden [grid-template-areas:'sider_content'] [grid-template-columns:auto_1fr]`}
+>
 	<Sider />
 	<main class="[grid-area:content] overflow-y-auto overflow-x-hidden print:overflow-hidden">
 		<slot />

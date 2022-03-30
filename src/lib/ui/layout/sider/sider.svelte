@@ -27,7 +27,7 @@
 <sider
 	class={cc({
 		'app-sider': true,
-		'fixed h-full': true,
+		'h-full': true,
 		'[grid-area:sider] print:hidden': true,
 		'bg-slate-400 p-8': true,
 		'flex flex-col gap-4': true,
