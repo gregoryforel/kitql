@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import type { ContainerType } from './components/container.types'
 import { getValue, hydratePath } from './resume.helpers'
 
@@ -13,9 +14,19 @@ interface Branch {
 const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; resume }) => {
 	const hydratedValuePath = hydratePath({ path: branch?.path, indexes })
 	const tag = branch?.tag
-	// attributes && console.log('attributes', attributes)
+	let value = getValue({ path: hydratedValuePath, resume })
+	branch.attributes && console.log('c', branch.attributes)
 
-	const value = getValue({ path: hydratedValuePath, resume })
+	if (branch?.attributes) {
+		switch (true) {
+			case Boolean(branch?.attributes['datetime']):
+				value = dayjs(value).isValid() ? dayjs(value).format('MMM. YYYY') : value
+				break
+
+			default:
+				break
+		}
+	}
 
 	if (Array.isArray(value)) {
 		return {
@@ -42,10 +53,12 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 				const attributes = c.attributes && JSON.parse(JSON.stringify(c.attributes)) // Deep copy
 				attributes &&
 					Object.keys(attributes).forEach((key) => {
-						attributes[key] = getValue({
+						const attribute = getValue({
 							path: hydratePath({ path: attributes[key], indexes }),
 							resume,
 						})
+
+						attributes[key] = attribute
 					})
 
 				return loop({
