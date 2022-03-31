@@ -127,6 +127,10 @@ export const resume = {
 	publications: [],
 	skills: [
 		{
+			name: null,
+			keywords: ['Leadership', 'Program & Project Management', 'Business Intelligence'],
+		},
+		{
 			name: 'Web Development',
 			keywords: [
 				'HTML',
@@ -137,7 +141,7 @@ export const resume = {
 				'Svelte',
 				'NextJS',
 				'GraphQL',
-				'Node',
+				'NodeJs',
 				'Git',
 			],
 		},

@@ -22,6 +22,14 @@
 		'cursor-not-allowed': isMonopage,
 		'bg-slate-300 text-slate-500': isMonopage,
 	})
+
+	const print = () => {
+		const originalContents = document.body.innerHTML
+		const printReport = document.getElementById('page').innerHTML
+		document.body.innerHTML = printReport
+		window.print()
+		document.body.innerHTML = originalContents
+	}
 </script>
 
 <sider
@@ -34,6 +42,8 @@
 	})}
 >
 	<section>
+		<button on:click={print}>Print</button>
+
 		<button
 			on:click={() => paperSize.changeSize('US Letter')}
 			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
@@ -48,18 +58,10 @@
 		</button>
 	</section>
 	<section>
-		<button
-			on:click={pagination.goToPreviousPage}
-			class={paginationBtnStyleCls}
-			disabled={isMonopage}
-		>
+		<button on:click={pagination.goToPreviousPage} class={paginationBtnStyleCls}>
 			<ArrowSmLeft />
 		</button>
-		<button
-			on:click={pagination.goToNextPage}
-			class={paginationBtnStyleCls}
-			disabled={isMonopage}
-		>
+		<button on:click={pagination.goToNextPage} class={paginationBtnStyleCls}>
 			<ArrowSmRight />
 		</button>
 	</section>

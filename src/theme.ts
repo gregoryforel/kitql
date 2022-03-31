@@ -237,12 +237,12 @@ export const theme: Theme = {
 												{
 													path: '$.skills[{{index}}].keywords',
 													tag: 'ul',
-													class: 'skills-and-certifications-list flex gap-1',
+													class: 'skills-and-certifications-list flex gap-1 flex-wrap',
 													containers: [
 														{
 															path: '$.skills[{{index}}].keywords[{{index}}]',
 															tag: 'li',
-															class: '',
+															class: 'px-2 h-fit rounded-sm bg-gray-100',
 														},
 													],
 												},
