@@ -21,7 +21,7 @@
 	"devDependencies": {
 		"@iconify-json/heroicons-outline": "^1.1.1",
 		"@iconify-json/mdi": "^1.1.0",
-		"@playwright/test": "^1.19.1",
+		"@playwright/test": "^1.21.0-alpha-mar-31-2022",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.47",
 		"@sveltejs/kit": "next",
@@ -39,6 +39,7 @@
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
 		"jest": "^27.5.1",
+		"playwright": "^1.21.0-alpha-mar-31-2022",
 		"postcss": "^8.4.6",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.0",

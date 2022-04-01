@@ -100,13 +100,19 @@ export const resume = {
 	awards: [],
 	certificates: [
 		{
+			name: 'PMP',
+			date: '2011-08-22',
+			issuer: 'PMI',
+			url: 'https://pmi.org/',
+		},
+		{
 			name: 'CSM - Certified Scrum Master',
 			date: '2013-08-01',
 			issuer: 'Scrum Alliance',
 			url: 'https://scrumalliance.org/',
 		},
 		{
-			name: 'PS, Professional Scrum MasterM',
+			name: 'PSM - Professional Scrum Master',
 			date: '2013-08-01',
 			issuer: 'Scrum',
 			url: 'https://scrum.org/',
@@ -117,15 +123,13 @@ export const resume = {
 			issuer: 'APMG-PRINCE2',
 			url: null,
 		},
-		{
-			name: 'PMP',
-			date: '2011-08-22',
-			issuer: 'PMI',
-			url: 'https://pmi.org/',
-		},
 	],
 	publications: [],
 	skills: [
+		{
+			name: null,
+			keywords: ['Leadership', 'Program & Project Management', 'Business Intelligence'],
+		},
 		{
 			name: 'Web Development',
 			keywords: [
@@ -137,17 +141,13 @@ export const resume = {
 				'Svelte',
 				'NextJS',
 				'GraphQL',
-				'Node',
+				'NodeJs',
 				'Git',
 			],
 		},
 		{
 			name: 'BI',
 			keywords: ['SQL', 'PowerBI', 'DAX', 'Excel', 'Data Model', 'ETL'],
-		},
-		{
-			name: 'MS Office',
-			keywords: ['SQL', 'PowerBI', 'DAX', 'Excel'],
 		},
 	],
 	languages: [

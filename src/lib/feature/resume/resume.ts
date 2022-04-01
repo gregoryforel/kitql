@@ -15,7 +15,6 @@ const loop = ({ branch, indexes, resume }: { branch: Branch; indexes: number[]; 
 	const hydratedValuePath = hydratePath({ path: branch?.path, indexes })
 	const tag = branch?.tag
 	let value = getValue({ path: hydratedValuePath, resume })
-	branch.attributes && console.log('c', branch.attributes)
 
 	if (branch?.attributes) {
 		switch (true) {

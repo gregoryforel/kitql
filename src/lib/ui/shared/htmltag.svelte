@@ -10,7 +10,7 @@
 {:else if tag === 'div'}
 	<div {...$$restProps}><slot /></div>
 {:else if tag === 'a'}
-	<a {...$$restProps}><slot /></a>
+	<a {...$$restProps} href={$$restProps.href}><slot /></a>
 {:else if tag === 'h1'}
 	<h1 {...$$restProps}><slot /></h1>
 {:else if tag === 'h2'}
