@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-	import cc from 'classcat'
 	import Resume from '$lib/ui/resume/resume.svelte'
 </script>
 
