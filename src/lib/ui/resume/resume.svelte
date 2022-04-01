@@ -19,11 +19,11 @@
 
 	import { pagination } from '$lib/data-access/pagination/pagination.store'
 	import { paperHeightMm, paperWidthMm } from '$lib/data-access/paper-size/paper-size.store'
+	import { buildResumeWithTheme } from '$lib/feature/resume/resume'
+	import Container from '$lib/feature/resume/components/container.svelte'
 
 	import { resume } from '../../../resume'
 	import { theme } from '../../../theme'
-	import Container from './components/container.svelte'
-	import { buildResumeWithTheme } from './resume'
 
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>
