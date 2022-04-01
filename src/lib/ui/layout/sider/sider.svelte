@@ -25,7 +25,7 @@
 
 	const print = () => {
 		const originalContents = document.body.innerHTML
-		const printReport = document.getElementById('page').innerHTML
+		const printReport = document.getElementById('my-cv').innerHTML
 		document.body.innerHTML = printReport
 		window.print()
 		document.body.innerHTML = originalContents

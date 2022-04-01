@@ -44,6 +44,7 @@
 			})}
 			style="--page-width: {$paperWidthMm}; --page-height: {$paperHeightMm}; --current-page: {$pagination.currentPage}"
 			bind:this={$pagination.page}
+			id={'my-cv'}
 		>
 			<Container
 				attributes={themedResume.attributes}
