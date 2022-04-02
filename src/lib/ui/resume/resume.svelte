@@ -77,10 +77,6 @@
 	}
 
 	@media print {
-		.page-inner {
-			margin: 0mm; /* Browser will apply the correct margins when it prints */
-		}
-
 		/* https://stackoverflow.com/questions/11604726/embed-font-face-fonts-when-printing-to-pdf-with-chrome */
 	}
 </style>
