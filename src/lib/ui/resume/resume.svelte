@@ -33,7 +33,7 @@
 </svelte:head>
 
 <div class="flex mx-auto justify-center px-8 py-2 flex-col w-fit gap-8">
-	<div class="page bg-white shadow-2xl print:shadow-none">
+	<div class="page bg-white shadow-2xl print:shadow-none" id={'my-cv'}>
 		<div
 			class={cc({
 				'page-inner': true,
@@ -44,7 +44,6 @@
 			})}
 			style="--page-width: {$paperWidthMm}; --page-height: {$paperHeightMm}; --current-page: {$pagination.currentPage}"
 			bind:this={$pagination.page}
-			id={'my-cv'}
 		>
 			<Container
 				attributes={themedResume.attributes}
