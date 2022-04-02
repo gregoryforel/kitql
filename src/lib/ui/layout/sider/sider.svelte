@@ -22,14 +22,6 @@
 		'cursor-not-allowed': isMonopage,
 		'bg-slate-300 text-slate-500': isMonopage,
 	})
-
-	const print = () => {
-		const originalContents = document.body.innerHTML
-		const printReport = document.getElementById('my-cv').innerHTML
-		document.body.innerHTML = printReport
-		window.print()
-		document.body.innerHTML = originalContents
-	}
 </script>
 
 <sider
@@ -42,8 +34,6 @@
 	})}
 >
 	<section>
-		<button on:click={print}>Print</button>
-
 		<button
 			on:click={() => paperSize.changeSize('US Letter')}
 			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
