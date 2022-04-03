@@ -7,7 +7,7 @@ export const get = async ({ request }) => {
 	const browser = await playwright.chromium.launch()
 	const context = await browser.newContext({ acceptDownloads: true })
 	const page = await context.newPage()
-	await page.goto('https://sleekcv.netlify.app/resumes')
+	await page.goto('https://sleekcv.netlify.app/resumes', { waitUntil: 'domcontentloaded' })
 	const pdf = await page.pdf({
 		path: `document.pdf`,
 		margin: { bottom: '10mm', left: '10mm', right: '10mm', top: '10mm' },
