@@ -10,7 +10,6 @@ export const get = async ({ request }) => {
 	await page.goto('https://sleekcv.netlify.app/resumes')
 	const pdf = await page.pdf({
 		path: `document.pdf`,
-
 		margin: { bottom: '10mm', left: '10mm', right: '10mm', top: '10mm' },
 	})
 

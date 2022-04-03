@@ -2,6 +2,7 @@
 	import ArrowSmLeft from '~icons/heroicons-outline/arrow-sm-left'
 	import ArrowSmRight from '~icons/heroicons-outline/arrow-sm-right'
 	import cc from 'classcat'
+	import streamSaver from 'streamsaver'
 
 	import { paperSize, type PaperSize } from '$lib/data-access/paper-size/paper-size.store'
 	import { pagination } from '$lib/data-access/pagination/pagination.store'
@@ -27,20 +28,38 @@
 		const response = await fetch('/api/pdf')
 		const res = await response
 
-		const blob = await res.blob()
-		const newBlob = new Blob([blob])
+		const fileStream = streamSaver.createWriteStream(`test.pdf`)
+		const writer = fileStream.getWriter()
 
-		const blobUrl = window.URL.createObjectURL(newBlob)
+		const reader = res.body.getReader()
 
-		const link = document.createElement('a')
-		link.href = blobUrl
-		link.setAttribute('download', `test.pdf`)
-		document.body.appendChild(link)
-		link.click()
-		link.parentNode.removeChild(link)
+		const pump = () =>
+			reader.read().then(({ value, done }) => {
+				if (done) writer.close()
+				else {
+					writer.write(value)
+					return writer.ready.then(pump)
+				}
+			})
 
-		// clean up Url
-		window.URL.revokeObjectURL(blobUrl)
+		await pump()
+			.then(() => console.log('Closed the stream, Done writing'))
+			.catch((err) => console.log(err))
+
+		// const blob = await res.blob()
+		// const newBlob = new Blob([blob])
+
+		// const blobUrl = window.URL.createObjectURL(newBlob)
+
+		// const link = document.createElement('a')
+		// link.href = blobUrl
+		// link.setAttribute('download', `test.pdf`)
+		// document.body.appendChild(link)
+		// link.click()
+		// link.parentNode.removeChild(link)
+
+		// // clean up Url
+		// window.URL.revokeObjectURL(blobUrl)
 	}
 </script>
 
