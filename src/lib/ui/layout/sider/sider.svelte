@@ -23,12 +23,24 @@
 		'bg-slate-300 text-slate-500': isMonopage,
 	})
 
-	const print = () => {
-		const originalContents = document.body.innerHTML
-		const printReport = document.getElementById('my-cv').innerHTML
-		document.body.innerHTML = printReport
-		window.print()
-		document.body.innerHTML = originalContents
+	const downloadPdf = async () => {
+		const response = await fetch('/api/pdf')
+		const res = await response
+
+		const blob = await res.blob()
+		const newBlob = new Blob([blob])
+
+		const blobUrl = window.URL.createObjectURL(newBlob)
+
+		const link = document.createElement('a')
+		link.href = blobUrl
+		link.setAttribute('download', `test.pdf`)
+		document.body.appendChild(link)
+		link.click()
+		link.parentNode.removeChild(link)
+
+		// clean up Url
+		window.URL.revokeObjectURL(blobUrl)
 	}
 </script>
 
@@ -42,8 +54,7 @@
 	})}
 >
 	<section>
-		<button on:click={print}>Print</button>
-
+		<button on:click={downloadPdf} type="submit">Download PDF</button>
 		<button
 			on:click={() => paperSize.changeSize('US Letter')}
 			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
