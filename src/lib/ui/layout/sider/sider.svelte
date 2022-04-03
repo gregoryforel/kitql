@@ -22,6 +22,26 @@
 		'cursor-not-allowed': isMonopage,
 		'bg-slate-300 text-slate-500': isMonopage,
 	})
+
+	const downloadPdf = async () => {
+		const response = await fetch('/api/pdf')
+		const res = await response
+
+		const blob = await res.blob()
+		const newBlob = new Blob([blob])
+
+		const blobUrl = window.URL.createObjectURL(newBlob)
+
+		const link = document.createElement('a')
+		link.href = blobUrl
+		link.setAttribute('download', `test.pdf`)
+		document.body.appendChild(link)
+		link.click()
+		link.parentNode.removeChild(link)
+
+		// clean up Url
+		window.URL.revokeObjectURL(blobUrl)
+	}
 </script>
 
 <sider
@@ -34,6 +54,7 @@
 	})}
 >
 	<section>
+		<button on:click={downloadPdf} type="submit">Download PDF</button>
 		<button
 			on:click={() => paperSize.changeSize('US Letter')}
 			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
