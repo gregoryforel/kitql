@@ -24,9 +24,12 @@
 	})
 
 	const downloadPdf = async () => {
-		const response = await fetch('/api/pdf')
+		const response = await fetch('/api/pdf', { headers: { 'Content-type': 'application/pdf' } })
 		const res = await response
-
+		// res.setHeader('Content-Type', 'application/pdf')
+		// res.setHeader('Content-Length', data.length)
+		// res.setHeader('Content-Disposition', 'attachment; filename=name.Pdf')
+		// return res.end(data)
 		const blob = await res.blob()
 		const newBlob = new Blob([blob])
 
