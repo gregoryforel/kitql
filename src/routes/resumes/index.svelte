@@ -4,7 +4,7 @@
 	import Resume from '$lib/ui/resume/resume.svelte'
 
 	onMount(async () => {
-		const originalContents = document.body.innerHTML
+		// const originalContents = document.body.innerHTML
 		const printReport = document.getElementById('my-cv').innerHTML
 		document.body.innerHTML = printReport
 	})
