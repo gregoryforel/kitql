@@ -75,10 +75,10 @@
 			>View PDF</button
 		>
 		<button
-			on:click={() => paperSize.changeSize('US Letter')}
-			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
+			on:click={() => paperSize.changeSize('Letter')}
+			class={paperSizeBtnStyleCls('Letter', $paperSize)}
 		>
-			US Letter
+			Letter
 		</button>
 		<button
 			on:click={() => paperSize.changeSize('A4')}

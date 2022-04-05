@@ -1,10 +1,10 @@
 import { derived, writable } from 'svelte/store'
 
-export type PaperSize = 'A4' | 'US Letter'
+export type PaperSize = 'A4' | 'Letter'
 
 const paperFormat = {
 	A4: { width: 210, height: 297 },
-	'US Letter': { width: 216, height: 279 },
+	Letter: { width: 216, height: 279 },
 }
 
 function paperSizeStore() {
@@ -20,21 +20,21 @@ function paperSizeStore() {
 export const paperSize = paperSizeStore()
 
 export const paperWidth = derived(paperSize, ($paperSize) =>
-	$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width
+	$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['Letter'].width
 )
 
 export const paperHeight = derived(paperSize, ($paperSize) =>
-	$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height
+	$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['Letter'].height
 )
 
 export const paperWidthMm = derived(
 	paperSize,
 	($paperSize) =>
-		`${$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['US Letter'].width}mm`
+		`${$paperSize === 'A4' ? paperFormat['A4'].width : paperFormat['Letter'].width}mm`
 )
 
 export const paperHeightMm = derived(
 	paperSize,
 	($paperSize) =>
-		`${$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['US Letter'].height}mm`
+		`${$paperSize === 'A4' ? paperFormat['A4'].height : paperFormat['Letter'].height}mm`
 )
