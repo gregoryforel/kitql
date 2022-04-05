@@ -6,7 +6,7 @@ exports.handler = async (event, context, callback) => {
 	let pdf = null
 	console.log('spawning chrome headless')
 	try {
-		const executablePath = await chromium.executablePath
+		const executablePath = process.env.CHROME_EXECUTABLE_PATH || (await chromium.executablePath)
 
 		// setup
 		browser = await puppeteer.launch({
@@ -25,7 +25,13 @@ exports.handler = async (event, context, callback) => {
 		})
 
 		pdf = await page.pdf({
-			margin: { bottom: '10mm', left: '10mm', right: '10mm', top: '10mm' },
+			format: 'A4',
+			margin: {
+				bottom: '10mm',
+				left: '10mm',
+				right: '10mm',
+				top: '10mm',
+			},
 		})
 	} catch (error) {
 		console.log('error', error)
@@ -45,7 +51,15 @@ exports.handler = async (event, context, callback) => {
 	return callback(null, {
 		statusCode: 200,
 		body: JSON.stringify({
-			pdf,
+			base64pdf: pdf.toString('base64'),
 		}),
+		// headers: {
+		//     'Access-Control-Allow-Origin': '*',
+		//     'Access-Control-Allow-Headers': 'Content-Type',
+		//     'Access-Control-Allow-Methods': 'GET, POST, OPTION',
+		// },
 	})
 }
+// "Access-Control-Allow-Origin": "*",
+// "Access-Control-Allow-Headers": "Content-Type",
+// "Access-Control-Allow-Methods": "GET, POST, OPTION",
