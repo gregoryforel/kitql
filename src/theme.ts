@@ -217,7 +217,7 @@ export const theme: Theme = {
 						{
 							path: '$.skills',
 							tag: 'ul',
-							class: 'skills-and-certifications-list flex-col list-disc ml-8',
+							class: 'skills-and-certifications-list flex-col list-disc ml-8 ',
 							containers: [
 								{
 									path: null,
@@ -240,9 +240,16 @@ export const theme: Theme = {
 													class: 'skills-and-certifications-list flex gap-1 flex-wrap',
 													containers: [
 														{
-															path: '$.skills[{{index}}].keywords[{{index}}]',
+															path: null,
 															tag: 'li',
-															class: 'px-2 h-fit rounded-sm bg-gray-100',
+															class: "after:content-[',_'] after:last:content-['']",
+															containers: [
+																{
+																	path: '$.skills[{{index}}].keywords[{{index}}]',
+																	class: 'px-2 h-fit rounded-sm bg-gray-200',
+																	tag: 'span',
+																},
+															],
 														},
 													],
 												},
