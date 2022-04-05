@@ -10,7 +10,7 @@
 	const paperSizeBtnStyleCls = (btnType: PaperSize, paperSize) => {
 		return cc({
 			paperSizeBtnStyleCls: true,
-			'rounded text-base text-slate-900 px-2 py-1': true,
+			'rounded text-base px-2 py-1': true,
 			'bg-white text-slate-900': paperSize !== btnType,
 			'bg-slate-800 text-white': paperSize === btnType,
 		})
@@ -23,27 +23,41 @@
 		'bg-slate-300 text-slate-500': isMonopage,
 	})
 
-	const downloadPdf = async () => {
-		const response = await fetch('/api/pdf', { headers: { 'Content-type': 'application/pdf' } })
-		const res = await response
-		// res.setHeader('Content-Type', 'application/pdf')
-		// res.setHeader('Content-Length', data.length)
-		// res.setHeader('Content-Disposition', 'attachment; filename=name.Pdf')
-		// return res.end(data)
-		const blob = await res.blob()
-		const newBlob = new Blob([blob])
+	// const downloadPdf = async () => {
+	// 	const response = await fetch('/api/pdf', { headers: { 'Content-type': 'application/pdf' } })
+	// 	const res = await response
+	// 	// res.setHeader('Content-Type', 'application/pdf')
+	// 	// res.setHeader('Content-Length', data.length)
+	// 	// res.setHeader('Content-Disposition', 'attachment; filename=name.Pdf')
+	// 	// return res.end(data)
+	// 	const blob = await res.blob()
+	// 	const newBlob = new Blob([blob])
 
-		const blobUrl = window.URL.createObjectURL(newBlob)
+	// 	const blobUrl = window.URL.createObjectURL(newBlob)
 
-		const link = document.createElement('a')
-		link.href = blobUrl
-		link.setAttribute('download', `test.pdf`)
-		document.body.appendChild(link)
-		link.click()
-		link.parentNode.removeChild(link)
+	// 	const link = document.createElement('a')
+	// 	link.href = blobUrl
+	// 	link.setAttribute('download', `test.pdf`)
+	// 	document.body.appendChild(link)
+	// 	link.click()
+	// 	link.parentNode.removeChild(link)
 
-		// clean up Url
-		window.URL.revokeObjectURL(blobUrl)
+	// 	// clean up Url
+	// 	window.URL.revokeObjectURL(blobUrl)
+	// }
+	let loading = false
+
+	$: openPdf = async () => {
+		loading = true
+		const response = await fetch(
+			`https://sleekresumepdf.netlify.app/.netlify/functions/meta?format=${$paperSize}`
+		)
+		const buffer = await response.arrayBuffer()
+		loading = false
+		const blob = new Blob([buffer], { type: 'application/pdf' })
+		const blobURL = URL.createObjectURL(blob)
+		window.open(blobURL)
+		window.URL.revokeObjectURL(blobURL)
 	}
 </script>
 
@@ -57,7 +71,9 @@
 	})}
 >
 	<section>
-		<button on:click={downloadPdf} type="submit">Download PDF</button>
+		<button class="rounded text-base text-slate-900 px-2 py-1 bg-white" on:click={openPdf}
+			>View PDF</button
+		>
 		<button
 			on:click={() => paperSize.changeSize('US Letter')}
 			class={paperSizeBtnStyleCls('US Letter', $paperSize)}
