@@ -13,6 +13,21 @@ array_relationships:
       table:
         name: work_experiences
         schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      user_id:
+        _eq: X-Hasura-User-Id
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - user_id
+    - name
+    - description
+    - data
+  role: user
 select_permissions:
 - permission:
     columns:
@@ -35,4 +50,21 @@ select_permissions:
     - id
     - user_id
     filter: {}
+  role: user
+update_permissions:
+- permission:
+    check:
+      user_id:
+        _eq: X-Hasura-User-Id
+    columns:
+    - data
+    - description
+    - name
+    - created_at
+    - updated_at
+    - id
+    - user_id
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
   role: user

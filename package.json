@@ -6,7 +6,7 @@
 		"dev": "svelte-kit dev",
 		"netlify": "netlify dev",
 		"schema:apollo": "npm run apollo schema:download --endpoint http://localhost:1337/v1/graphql --header \"X-Hasura-Admin-Secret: nhost-admin-secret\"",
-		"schema": "gq http://localhost:1337/v1/graphql --header \"X-Hasura-Admin-Secret: nhost-admin-secret\" --introspect > ./src/lib/graphql/schema.graphql",
+		"schema": "gq http://localhost:1337/v1/graphql --header \"X-Hasura-Admin-Secret: nhost-admin-secret\" --introspect > src/lib/data-access/graphql/schema.graphql",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
@@ -56,6 +56,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.5.0",
+		"@kitql/all-in": "^0.6.3",
 		"@lukeed/uuid": "^2.0.0",
 		"@netlify/functions": "^1.0.0",
 		"@nhost/nhost-js": "^0.3.10",
