@@ -2,9 +2,6 @@
 	import { browser, dev } from '$app/env'
 	import { KQL_GetResumeById } from '$lib/data-access/graphql/_kitql/graphqlStores'
 
-	const id = 'fa69f955-ceab-4072-9e75-d25a07f27312'
-	// const id = 'ZmlsbXM6MQ=='
-
 	// import { nhost } from '$lib/util/nhost'
 	// we don't need any JS on this page, though we'll load
 	// it in dev so that we get hot module replacement...
@@ -17,6 +14,8 @@
 	// it so that it gets served as a static asset in prod
 	export const prerender = true
 	export async function load({ fetch }) {
+		const id = 'fa69f955-ceab-4072-9e75-d25a07f27312'
+
 		await KQL_GetResumeById.queryLoad({
 			fetch,
 			variables: { id },
@@ -27,6 +26,7 @@
 
 <script lang="ts">
 	import { KitQLInfo } from '@kitql/all-in'
+	import Resume from '$lib/ui/resume/resume.svelte'
 </script>
 
 <svelte:head>
@@ -37,3 +37,8 @@
 <br />
 <KitQLInfo store={KQL_GetResumeById} />
 <pre>{JSON.stringify($KQL_GetResumeById.data, null, 2)}</pre>
+
+<Resume />
+
+<style>
+</style>
