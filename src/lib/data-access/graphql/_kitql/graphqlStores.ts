@@ -1,6 +1,6 @@
 import { browser } from '$app/env';
 import * as Types from '$lib/data-access/graphql/_kitql/graphqlTypes';
-import { defaultStoreValue, RequestStatus, ResponseResultType, type PatchType, type RequestQueryParameters, type RequestResult } from '@kitql/client';
+import { defaultStoreValue, RequestStatus, ResponseResultType, type PatchType, type RequestParameters, type RequestQueryParameters, type RequestResult } from '@kitql/client';
 import { get, writable } from 'svelte/store';
 import { kitQLClient } from '../kitQLClient';
  
@@ -147,3 +147,52 @@ function KQL_GetResumeByIdStore() {
  * KitQL Svelte Store with the latest `GetResumeById` Operation
  */
 export const KQL_GetResumeById = KQL_GetResumeByIdStore();
+
+function KQL_UpdateResumeDataStore() {
+	const operationName = 'KQL_UpdateResumeData';
+	const operationType = ResponseResultType.Mutation;
+
+	// prettier-ignore
+	const { subscribe, set, update } = writable<RequestResult<Types.UpdateResumeDataMutation, Types.UpdateResumeDataMutationVariables>>({...defaultStoreValue, operationName, operationType});
+
+		async function mutateLocal(
+			params?: RequestParameters<Types.UpdateResumeDataMutationVariables>
+		): Promise<RequestResult<Types.UpdateResumeDataMutation, Types.UpdateResumeDataMutationVariables>> {
+			let { fetch, variables } = params ?? {};
+
+			const storedVariables = get(KQL_UpdateResumeData).variables;
+			variables = variables ?? storedVariables;
+
+			update((c) => {
+				return { ...c, isFetching: true, status: RequestStatus.LOADING };
+			});
+
+			// prettier-ignore
+			const res = await kitQLClient.request<Types.UpdateResumeDataMutation, Types.UpdateResumeDataMutationVariables>({
+				skFetch: fetch,
+				document: Types.UpdateResumeDataDocument,
+				variables, 
+				operationName, 
+				operationType, 
+				browser
+			});
+			const result = { ...res, isFetching: false, status: RequestStatus.DONE, variables };
+			set(result);
+			return result;
+		}
+
+	return {
+		subscribe,
+
+		/**
+		 * Can be used for SSR, but simpler option is `.queryLoad`
+		 * @returns fill this store & the cache
+		 */
+		mutate: mutateLocal,
+
+	};
+}
+/**
+ * KitQL Svelte Store with the latest `UpdateResumeData` Operation
+ */
+export const KQL_UpdateResumeData = KQL_UpdateResumeDataStore();
