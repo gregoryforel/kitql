@@ -2,7 +2,6 @@
 import adapter from '@sveltejs/adapter-netlify'
 import path from 'path'
 import preprocess from 'svelte-preprocess'
-import Icons from 'unplugin-icons/vite'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -27,11 +26,7 @@ const config = {
 				optimizeDeps: {
 					include: ['broadcast-channel'],
 				},
-				plugins: [
-					Icons({
-						compiler: 'svelte',
-					}),
-				],
+
 				resolve: {
 					alias: {
 						$utils: path.resolve('./src/utils'),

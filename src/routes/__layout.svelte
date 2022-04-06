@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { KQL__Init } from '$lib/data-access/graphql/_kitql/graphqlStores'
-	import Sider from '$lib/ui/layout/sider/sider.svelte'
 	KQL__Init()
 
 	import '../app.css'

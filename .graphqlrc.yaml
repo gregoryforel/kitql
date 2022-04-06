@@ -1,5 +1,5 @@
 schema:
-  - ./src/lib/data-access/graphql/schema.json
+  - ./src/lib/data-access/graphql/schema.graphql
 documents:
   - './src/**/*.{gql,graphql}'
 generates:

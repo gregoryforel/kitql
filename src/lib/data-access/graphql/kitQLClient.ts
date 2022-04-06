@@ -1,9 +1,6 @@
 import { KitQLClient } from '@kitql/client'
 
 import { appConfig } from '$lib/util/config'
-import { nhost } from '$lib/util/nhost'
-
-const token = nhost.auth.getAccessToken()
 
 export type AppHeaders = {
 	Authorization?: `Bearer ${string}`
@@ -14,7 +11,7 @@ const kitQLClient = new KitQLClient<AppHeaders>({
 	headersContentType: 'application/json',
 	logType: ['client', 'server', 'operationAndvariables'],
 	// endpointSSRDelayMs: 1000,
-	headers: token ? { Authorization: `Bearer ${token}` } : null,
+	// headers: token ? { Authorization: `Bearer ${token}` } : null,
 	// endpointNetworkDelayMs: 2000,
 })
 
