@@ -33,12 +33,7 @@
 	<title>Home</title>
 </svelte:head>
 
-<h1>Test pulling data from https://swapi-graphql.netlify.app/.netlify/functions/index</h1>
-<br />
-<KitQLInfo store={KQL_GetResumeById} />
-<pre>{JSON.stringify($KQL_GetResumeById.data, null, 2)}</pre>
-
-<Resume />
+<Resume resume={$KQL_GetResumeById.data.resumes_by_pk.data} />
 
 <style>
 </style>

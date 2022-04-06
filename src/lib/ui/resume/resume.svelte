@@ -19,12 +19,13 @@
 
 	import { pagination } from '$lib/data-access/pagination/pagination.store'
 	import { paperHeightMm, paperWidthMm } from '$lib/data-access/paper-size/paper-size.store'
-	import { KQL_GetResumeById } from '$lib/data-access/graphql/_kitql/graphqlStores'
 	import { buildResumeWithTheme } from '$lib/feature/resume/resume'
 	import Container from '$lib/feature/resume/components/container.svelte'
 
-	import { resume } from '../../../resume'
+	// import { resume } from '../../../resume'
 	import { theme } from '../../../theme'
+
+	export let resume
 
 	const themedResume = buildResumeWithTheme({ resume, theme })
 </script>
@@ -32,7 +33,6 @@
 <svelte:head>
 	<title>About</title>
 </svelte:head>
-
 <div class="flex mx-auto justify-center px-8 py-2 flex-col w-fit gap-8">
 	<div class="page bg-white shadow-2xl print:shadow-none" id={'my-cv'}>
 		<div
