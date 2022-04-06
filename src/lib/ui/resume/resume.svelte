@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	import { browser, dev } from '$app/env'
 	// import { nhost } from '$lib/util/nhost'
 	// we don't need any JS on this page, though we'll load
@@ -11,7 +11,14 @@
 
 	// since there's no dynamic data here, we can prerender
 	// it so that it gets served as a static asset in prod
-	// export const prerender = true
+	export const prerender = true
+	// export async function load({ fetch }) {
+	// 	await KQL_GetResumeById.queryLoad({
+	// 		fetch,
+	// 		variables: { id: 'fa69f955-ceab-4072-9e75-d25a07f27312' },
+	// 	}) // Filling the store
+	// 	return {}
+	// }
 </script>
 
 <script lang="ts">
@@ -19,6 +26,7 @@
 
 	import { pagination } from '$lib/data-access/pagination/pagination.store'
 	import { paperHeightMm, paperWidthMm } from '$lib/data-access/paper-size/paper-size.store'
+	import { KQL_GetResumeById } from '$lib/data-access/graphql/_kitql/graphqlStores'
 	import { buildResumeWithTheme } from '$lib/feature/resume/resume'
 	import Container from '$lib/feature/resume/components/container.svelte'
 
@@ -26,11 +34,18 @@
 	import { theme } from '../../../theme'
 
 	const themedResume = buildResumeWithTheme({ resume, theme })
+
+	KQL_GetResumeById.query({
+		fetch,
+		variables: { id: 'fa69f955-ceab-4072-9e75-d25a07f27312' },
+	}) // Filling the store
 </script>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
+
+<pre>{JSON.stringify($KQL_GetResumeById, null, 2)}</pre>
 
 <div class="flex mx-auto justify-center px-8 py-2 flex-col w-fit gap-8">
 	<div class="page bg-white shadow-2xl print:shadow-none" id={'my-cv'}>

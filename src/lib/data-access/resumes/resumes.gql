@@ -1,8 +1,0 @@
-mutation modifyCv($data: jsonb) {
-	update_resumes_by_pk(
-		pk_columns: { id: "fa69f955-ceab-4072-9e75-d25a07f27312" }
-		_set: { data: $data }
-	) {
-		data
-	}
-}

@@ -4437,22 +4437,40 @@ export enum Work_Experiences_Update_Column {
   UpdatedAt = 'updated_at'
 }
 
-export type ModifyCvMutationVariables = Exact<{
+export type GetResumeByIdQueryVariables = Exact<{
+  id: Scalars['uuid'];
+}>;
+
+
+export type GetResumeByIdQuery = { __typename?: 'query_root', resumes_by_pk?: { __typename?: 'resumes', id: any, description?: string | null, name: string, data?: any | null, created_at: any, updated_at: any } | null };
+
+export type UpdateResumeDataMutationVariables = Exact<{
+  id: Scalars['uuid'];
   data?: InputMaybe<Scalars['jsonb']>;
 }>;
 
 
-export type ModifyCvMutation = { __typename?: 'mutation_root', update_resumes_by_pk?: { __typename?: 'resumes', data?: any | null } | null };
+export type UpdateResumeDataMutation = { __typename?: 'mutation_root', update_resumes_by_pk?: { __typename?: 'resumes', data?: any | null } | null };
 
 
-export const ModifyCvDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"modifyCv"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"jsonb"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"update_resumes_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pk_columns"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"StringValue","value":"fa69f955-ceab-4072-9e75-d25a07f27312","block":false}}]}},{"kind":"Argument","name":{"kind":"Name","value":"_set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"}}]}}]}}]} as unknown as DocumentNode<ModifyCvMutation, ModifyCvMutationVariables>;
+export const GetResumeByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetResumeById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resumes_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"data"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}}]}}]}}]} as unknown as DocumentNode<GetResumeByIdQuery, GetResumeByIdQueryVariables>;
+export const UpdateResumeDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateResumeData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"jsonb"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"update_resumes_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pk_columns"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"_set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"}}]}}]}}]} as unknown as DocumentNode<UpdateResumeDataMutation, UpdateResumeDataMutationVariables>;
 
-export const ModifyCv = gql`
-    mutation modifyCv($data: jsonb) {
-  update_resumes_by_pk(
-    pk_columns: {id: "fa69f955-ceab-4072-9e75-d25a07f27312"}
-    _set: {data: $data}
-  ) {
+export const GetResumeById = gql`
+    query GetResumeById($id: uuid!) {
+  resumes_by_pk(id: $id) {
+    id
+    description
+    name
+    data
+    created_at
+    updated_at
+  }
+}
+    `;
+export const UpdateResumeData = gql`
+    mutation UpdateResumeData($id: uuid!, $data: jsonb) {
+  update_resumes_by_pk(pk_columns: {id: $id}, _set: {data: $data}) {
     data
   }
 }

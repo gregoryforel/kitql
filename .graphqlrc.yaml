@@ -13,3 +13,5 @@ generates:
   ./src/lib/data-access/graphql/_kitql/graphqlStores.ts:
     plugins:
       - '@kitql/graphql-codegen'
+    config:
+      importBaseTypesFrom: $lib/data-access/graphql/_kitql/graphqlTypes

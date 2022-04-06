@@ -1,0 +1,5 @@
+mutation UpdateResumeData($id: uuid!, $data: jsonb) {
+	update_resumes_by_pk(pk_columns: { id: $id }, _set: { data: $data }) {
+		data
+	}
+}
