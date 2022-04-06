@@ -4,8 +4,11 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"gen": "graphql-codegen --config ./.graphqlrc.yaml",
+		"gen2": "graphql-codegen --config ./.graphqlrc2.yaml",
 		"schema": "gq https://api.spacex.land/graphql/ --header \"X-Hasura-Admin-Secret: nhost-admin-secret\" --introspect > src/lib/data-access/graphql/schema.graphql",
 		"schema:json": "gq https://graphql.api.apollographql.com/api/graphql/  --introspect --format json > src/lib/data-access/graphql/schema.json",
+		"schema2": "gq http://localhost:1337/v1/graphql --header \"X-Hasura-Admin-Secret: nhost-admin-secret\" --introspect > src/lib/data-access/graphql/schema.graphql",
+		"schema2:json": "gq http://localhost:1337/v1/graphql --header \"X-Hasura-Admin-Secret: nhost-admin-secret\" --introspect --format json > src/lib/data-access/graphql/schema.json",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",

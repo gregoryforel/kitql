@@ -1,0 +1,17 @@
+schema:
+    - ./src/lib/data-access/graphql/schema.json
+documents:
+    - './src/**/*.{gql,graphql}'
+generates:
+    ./src/lib/data-access/graphql/_kitql/graphqlTypes.ts:
+        plugins:
+            - typescript
+            - typescript-operations
+            - typed-document-node
+            - typescript-document-nodes
+
+    ./src/lib/data-access/graphql/_kitql/graphqlStores.ts:
+        plugins:
+            - '@kitql/graphql-codegen'
+        config:
+            importBaseTypesFrom: $lib/data-access/graphql/_kitql/graphqlTypes

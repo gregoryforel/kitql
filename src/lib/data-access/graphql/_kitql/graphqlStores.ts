@@ -23,24 +23,24 @@ if (browser) {
  * ResetAllCaches in One function!
  */
 export function KQL__ResetAllCaches() {
-	KQL_Film.resetCache();
+	KQL_GetResumeById.resetCache();
 }
  
 /* Operations 👇 */
-function KQL_FilmStore() {
-	const operationName = 'KQL_Film';
+function KQL_GetResumeByIdStore() {
+	const operationName = 'KQL_GetResumeById';
 	const operationType = ResponseResultType.Query;
 
 	// prettier-ignore
-	const { subscribe, set, update } = writable<RequestResult<Types.FilmQuery, Types.FilmQueryVariables>>({...defaultStoreValue, operationName, operationType});
+	const { subscribe, set, update } = writable<RequestResult<Types.GetResumeByIdQuery, Types.GetResumeByIdQueryVariables>>({...defaultStoreValue, operationName, operationType});
 
 		async function queryLocal(
-			params?: RequestQueryParameters<Types.FilmQueryVariables>
-		): Promise<RequestResult<Types.FilmQuery, Types.FilmQueryVariables>> {
+			params?: RequestQueryParameters<Types.GetResumeByIdQueryVariables>
+		): Promise<RequestResult<Types.GetResumeByIdQuery, Types.GetResumeByIdQueryVariables>> {
 			let { fetch, variables, settings } = params ?? {};
 			let { cacheMs, policy } = settings ?? {};
 
-			const storedVariables = get(KQL_Film).variables;
+			const storedVariables = get(KQL_GetResumeById).variables;
 			variables = variables ?? storedVariables;
 			policy = policy ?? kitQLClient.policy;
 
@@ -48,7 +48,7 @@ function KQL_FilmStore() {
 			if (browser) {
 				if (policy !== 'network-only') {
 					// prettier-ignore
-					const cachedData = kitQLClient.requestCache<Types.FilmQuery, Types.FilmQueryVariables>({
+					const cachedData = kitQLClient.requestCache<Types.GetResumeByIdQuery, Types.GetResumeByIdQueryVariables>({
 						variables, operationName, cacheMs,	browser
 					});
 					if (cachedData) {
@@ -73,9 +73,9 @@ function KQL_FilmStore() {
 			});
 
 			// prettier-ignore
-			const res = await kitQLClient.request<Types.FilmQuery, Types.FilmQueryVariables>({
+			const res = await kitQLClient.request<Types.GetResumeByIdQuery, Types.GetResumeByIdQueryVariables>({
 				skFetch: fetch,
-				document: Types.FilmDocument,
+				document: Types.GetResumeByIdDocument,
 				variables, 
 				operationName, 
 				operationType, 
@@ -100,7 +100,7 @@ function KQL_FilmStore() {
 		 * @returns fill this store & the cache
 		 */
 		queryLoad: async (
-			params?: RequestQueryParameters<Types.FilmQueryVariables>
+			params?: RequestQueryParameters<Types.GetResumeByIdQueryVariables>
 		): Promise<void> => {
 			if (clientStarted) {
 				queryLocal(params); // No await in purpose, we are in a client navigation.
@@ -113,7 +113,7 @@ function KQL_FilmStore() {
 		 * Reset Cache
 		 */
 		resetCache(
-			variables: Types.FilmQueryVariables | null = null,
+			variables: Types.GetResumeByIdQueryVariables | null = null,
 			allOperationKey: boolean = true,
 			withResetStore: boolean = true
 		) {
@@ -127,23 +127,23 @@ function KQL_FilmStore() {
 		 * Patch the store &&|| cache with some data.
 		 */
 		// prettier-ignore
-		patch(data: Types.FilmQuery, variables: Types.FilmQueryVariables | null = null, type: PatchType = 'cache-and-store'): void {
+		patch(data: Types.GetResumeByIdQuery, variables: Types.GetResumeByIdQueryVariables | null = null, type: PatchType = 'cache-and-store'): void {
 			let updatedCacheStore = undefined;
 			if(type === 'cache-only' || type === 'cache-and-store') {
-				updatedCacheStore = kitQLClient.cacheUpdate<Types.FilmQuery, Types.FilmQueryVariables>(operationName, data, { variables });
+				updatedCacheStore = kitQLClient.cacheUpdate<Types.GetResumeByIdQuery, Types.GetResumeByIdQueryVariables>(operationName, data, { variables });
 			}
 			if(type === 'store-only' ) {
-				let toReturn = { ...get(KQL_Film), data, variables } ;
+				let toReturn = { ...get(KQL_GetResumeById), data, variables } ;
 				set(toReturn);
 			}
 			if(type === 'cache-and-store' ) {
-				set({...get(KQL_Film), ...updatedCacheStore});
+				set({...get(KQL_GetResumeById), ...updatedCacheStore});
 			}
 			kitQLClient.logInfo(operationName, "patch", type);
 		}
 	};
 }
 /**
- * KitQL Svelte Store with the latest `Film` Operation
+ * KitQL Svelte Store with the latest `GetResumeById` Operation
  */
-export const KQL_Film = KQL_FilmStore();
+export const KQL_GetResumeById = KQL_GetResumeByIdStore();
