@@ -1,7 +1,9 @@
 import { KitQLClient } from '@kitql/client'
 
 import { appConfig } from '$lib/util/config'
-const testUrl = 'https://swapi-graphql.netlify.app/.netlify/functions/index'
+import { nhost } from '$lib/util/nhost'
+
+const token = nhost.auth.getAccessToken()
 
 export type AppHeaders = {
 	Authorization?: `Bearer ${string}`
