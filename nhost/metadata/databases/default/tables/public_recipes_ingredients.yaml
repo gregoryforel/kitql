@@ -1,0 +1,37 @@
+table:
+  name: recipes_ingredients
+  schema: public
+object_relationships:
+- name: ingredient
+  using:
+    foreign_key_constraint_on: ingredient_id
+- name: recipe
+  using:
+    foreign_key_constraint_on: recipe_id
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - quantity
+    - extra_info
+    - unit
+    - created_at
+    - updated_at
+    - id
+    - ingredient_id
+    - recipe_id
+    filter: {}
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - recipe_id
+    - ingredient_id
+    - created_at
+    - updated_at
+    - quantity
+    - unit
+    - extra_info
+    filter: {}
+  role: user

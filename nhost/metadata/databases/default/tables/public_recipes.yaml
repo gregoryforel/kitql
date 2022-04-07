@@ -1,0 +1,70 @@
+table:
+  name: recipes
+  schema: public
+object_relationships:
+- name: author
+  using:
+    foreign_key_constraint_on: author_id
+array_relationships:
+- name: equipment
+  using:
+    foreign_key_constraint_on:
+      column: recipe_id
+      table:
+        name: recipes_equipments
+        schema: public
+- name: ingredients
+  using:
+    foreign_key_constraint_on:
+      column: recipe_id
+      table:
+        name: recipes_ingredients
+        schema: public
+- name: steps
+  using:
+    foreign_key_constraint_on:
+      column: recipe_id
+      table:
+        name: steps
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - name
+    - author_id
+    - qr_code
+    - description
+    - total_time
+    - prep_time
+    - cooking_time
+    - rest_time
+    - cover_image
+    - servings
+    - servings_text
+    - slug
+    filter: {}
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - name
+    - author_id
+    - qr_code
+    - description
+    - total_time
+    - prep_time
+    - cooking_time
+    - rest_time
+    - cover_image
+    - servings
+    - servings_text
+    - slug
+    filter: {}
+  role: user
