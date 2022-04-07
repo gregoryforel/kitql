@@ -43,7 +43,7 @@
 </svelte:head>
 
 <button on:click={fill}>Fill CV</button>
-<Resume resume={$KQL_GetResumeById.data.resumes_by_pk.data} />
+<Resume resume={$KQL_GetResumeById?.data?.resumes_by_pk?.data} />
 
 <style>
 </style>
