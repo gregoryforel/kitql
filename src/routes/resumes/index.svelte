@@ -10,4 +10,4 @@
 	})
 </script>
 
-<Resume />
+<Resume resume={null} />
