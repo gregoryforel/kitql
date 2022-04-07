@@ -42,7 +42,7 @@
 	<title>Home</title>
 </svelte:head>
 
-<button on:click={fill}>FILL</button>
+<button on:click={fill}>Fill CV</button>
 <Resume resume={$KQL_GetResumeById.data.resumes_by_pk.data} />
 
 <style>
